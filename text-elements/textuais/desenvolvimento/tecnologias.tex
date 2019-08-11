@@ -42,18 +42,18 @@ Para capturar a posição enquanto tiver alteração, como movimentação do dis
     \centering
     \caption{Propriedades dos métodos de geolocalização}
     \includegraphics[width=0.8\textwidth]{./dados/figuras/fig1}
-    \fonte{\cite{oficinanetagps:2018}}
+    \fonte{\citeonline{oficinanetagps:2018}}
     \label{fig:figura-propertycoords}
 \end{figure}
 
 \section{A-GPS}
-A-GPS (\textit{Assisted Global Positioning System}), desenvolvida para localizar satélites com mais rapidez e confiabilidade, utiliza recursos de rede para localizar e utilizar os satélites em condições de sinal fraco. É uma versão otimizada do  GPS (\textit{Global Position System}), que recebe dados através de uma conexão de dados (GPRS ou 3G), permitindo que o aparelho calcule as coordenadas da sua posição atual ao receber informações satelitais, sob certas condições, como pode ser visto na \autoref{fig:figura-funcagps} \cite{oficinanetagps:2018}. 
+O Sistema de Posicionamento Global Assistido, desenvolvido para localizar satélites com mais rapidez e confiabilidade, dispõe de recursos de rede para localizar e utilizar os satélites em condições de sinal fraco. É uma versão otimizada do  GPS, que recebe dados através de uma conexão de dados (GPRS ou 3G), permitindo que o aparelho calcule as coordenadas da sua posição atual ao receber informações satelitais, sob certas condições, como pode ser visto na \autoref{fig:figura-funcagps} \cite{oficinanetagps:2018}. 
 
 \begin{figure}[H]
     \centering
     \caption{Funcionamento do A-GPS}
     \includegraphics[width=1.0\textwidth]{./dados/figuras/fig2}
-    \fonte{\cite{oficinanetagps:2018}}
+    \fonte{\citeonline{oficinanetagps:2018}}
     \label{fig:figura-funcagps}
 \end{figure}
 
@@ -64,26 +64,39 @@ Esta tecnologia se torna superior a sua antecessora devido a precisão e disponi
 \begin{figure}[H]
     \centering
     \caption{O problema do multipath}
-    \includegraphics[width=0.8\textwidth]{./dados/figuras/fig3}
-    \fonte{\cite{multicaminho:2004}}
+    \includegraphics[width=0.7\textwidth]{./dados/figuras/fig3}
+    \fonte{\citeonline{multicaminho:2004}}
     \label{fig:figura-propagmultipath}
 \end{figure}
 
-%\subsubsection{Diferenças entre GPS e A-GPS}
-%\subsection{Propagação Multipath}
+\subsection{Diferenças entre GPS e A-GPS}
+O GPS inicialmente realiza uma busca por satélites disponíveis para auxiliá-lo na navegação, ao encontrar o primeiro satélite disponível, o aparelho recebe informações sobre a localização dos outros satélites próximos, iniciando a roteirização da localização atual do mesmo. Este processo é demorado, devido à lenta conexão GPS entre os satélites ser muito lenta.
+
+Para dispositivos A-GPS, são utilizados servidores, como por exemplo uma torre de redes móvel (antenas de celulares) e bases (servidores) para obter as informações dos satélites constantemente. Uma vez que esses servidores estão continuamente enviando e recebendo informações dos satélites, não há atraso em demorar a conhecer a órbita e a localização exata dos satélites, o tempo para o recebimento dos dados é muito mais rápido que um GPS normal, já que os dados já estão armazenados nos servidores, que analisam os sinais fragmentados recebidos do receptor GPS e aqueles recebidos diretamente do satélite para corrigir erros, proporcionando uma localização exata do aparelho, onde o mesmo só precisará realizar alguns cálculos de triangulação com as antenas de redes móveis por final.
+
+A conexão inicial é feita com uma antena de telefonia celular que previamente armazenou a localização destes satélites e as transmite para o aparelho com uma velocidade até 40 vezes maior. Este recurso só é possível em aparelhos com conexão GPRS, caso este sinal esteja devido à regiões cercadas por edifícios muito altos, o A-GPS utiliza o apoio da antena quando o sinal GPS, ajudando a manter o sinal estável. Não existindo cobertura de celular, o aparelho funcionará normalmente como um GPS convencional. Segundo a descrição da \citeonline{oficinanetagps:2018}, o uso do A-GPS se torna a utilização mais eficaz, evitando o aguardo pela conexão entre satélites. Na \autoref{fig:figura-localizacaoGpsAgps} é possível visualizar como é feita a localização GPS e A-GPS.
+
+\begin{figure}[H]
+    \centering
+    \caption{Localização GPS e A-GPS}
+    \includegraphics[width=0.8\textwidth]{./dados/figuras/fig5}
+    \fonte{\citeonline{oficinanetagps:2018}}
+    \label{fig:figura-localizacaoGpsAgps}
+\end{figure}
 
 \section{Google Maps}
-O Google Maps é um dos recursos da Google mais popular de todos, amplamente utilizado por aqueles que querem se garantir na hora de chegar a um local desconhecido. Além de oferecer o serviço de mapas, o software inclui outras características muito úteis, como ferramentas para calcular as direções entre dois pontos. Pode-se obter mais informações sobre qualquer lugar, graças à utilização de fotos, \textit{webcams} e artigos. Seja pelos seus recursos básicos, como encontrar endereços específicos e verificar trajetos e distâncias entre dois ou mais pontos, ou pelos avançados, como a visão de satélite e o Street View, ele se destaca com facilidade neste mercado. Em parte graças à sua enorme abrangência, poucas cidades e ruas ainda não estão nele, permitindo fazer o \textit{download} de uma área no dispositivo para ser usado sem conexão com a internet, através das áreas \textit{off-line}. Os mapas salvos dessa forma são renovados a cada 30 dias por meio de redes \textit{Wi-Fi}, caso o usuário fique mais de 30 dias sem usá-los, o aplicativo sugerirá que ele renove a área ou a apague para economizar espaço. Esse recurso é especialmente útil caso você viaje para outro país e não tenha plano de dados móveis \cite{google:2019}. Na \autoref{fig:figura-googlemaps} pode-se ver um exemplo de visualização de mapa do Google Maps.
+O Google Maps é um dos recursos da Google mais popular de todos, amplamente utilizado por aqueles que querem se garantir na hora de chegar a um local desconhecido. Além de oferecer o serviço de mapas, o software inclui outras características muito úteis, como ferramentas para calcular as direções entre dois pontos. Pode-se obter mais informações sobre qualquer lugar, graças à utilização de fotos, \textit{webcams} e artigos. Seja pelos seus recursos básicos, como encontrar endereços específicos e verificar trajetos e distâncias entre dois ou mais pontos, ou pelos avançados, como a visão de satélite e o Street View, ele se destaca com facilidade neste mercado. Em parte graças à sua enorme abrangência, poucas cidades e ruas ainda não estão nele, permitindo fazer o \textit{download} de uma área no dispositivo para ser usado sem conexão com a internet, através das áreas \textit{off-line}. Os mapas salvos dessa forma são renovados a cada 30 dias por meio de redes \textit{Wi-Fi}, caso o usuário fique mais de 30 dias sem usá-los, o aplicativo sugerirá que ele renove a área ou a apague para economizar espaço. Esse recurso é especialmente útil para viagem à outro país e sem plano de dados móveis \cite{google:2019}. Na \autoref{fig:figura-googlemaps} pode-se ver um exemplo de visualização de mapa do Google Maps.
 
 \begin{figure}[H]
     \centering
     \caption{Exemplo de visualização do Google Maps}
     \includegraphics[width=0.9\textwidth]{./dados/figuras/fig4}
-    \fonte{\cite{googleMaps:2019}}
+    \fonte{\citeonline{googleMaps:2019}}
     \label{fig:figura-googlemaps}
 \end{figure}
 
-A principal utilização é a busca por endereços, a partir de um computador, independentemente do navegador e do sistema operacional, basta digitar o endereço que deseja encontrar. Além de digitar o local manualmente, você pode indicá-lo diretamente no mapa. Também é possível descobrir novos locais, como lojas, restaurantes entre outros pontos de interesse facilmente, através de categorias e subcategorias, como “para ir com crianças” e “para gastar pouco”. Tudo isso, são locais escolhidos com base na localização atual e que se adaptam ao gosto de cada usuário. É comum ser disponibilizado mais de um caminho para o destino final, exibindo por padrão a mais rápida, levando em consideração a variação de trânsito para o horário atual. Isso é possível porque o Google Maps acumula informações sobre o tráfego da região. Ou seja, ele sabe qual é o fluxo de veículos para um determinado local em um determinado horário. Além de encontrar qualquer localidade, demonstrar informações meteorológicas ou indicações e caminhar ao redor das cidades mais importantes do globo, é um de seus diferenciais \cite{google:2019}.
+A principal utilização é a busca por endereços, a partir de um computador, independentemente do navegador e do sistema operacional, basta digitar o endereço que deseja encontrar. Além de digitar o local manualmente, é possível
+indicá-lo diretamente no mapa. Também é possível descobrir novos locais, como lojas, restaurantes entre outros pontos de interesse facilmente, através de categorias e subcategorias, como “para ir com crianças” e “para gastar pouco”. Tudo isso, são locais escolhidos com base na localização atual e que se adaptam ao gosto de cada usuário. É comum ser disponibilizado mais de um caminho para o destino final, exibindo por padrão a mais rápida, levando em consideração a variação de trânsito para o horário atual. Isso é possível porque o Google Maps acumula informações sobre o tráfego da região. Ou seja, ele sabe qual é o fluxo de veículos para um determinado local em um determinado horário. Além de encontrar qualquer localidade, demonstrar informações meteorológicas ou indicações e caminhar ao redor das cidades mais importantes do globo, é um de seus diferenciais \cite{google:2019}.
 
 Para ajudar quem andar de ônibus, metrô e trem pelas cidades do mundo, é possível saber a melhor rota de transporte público, qual o ponto de ônibus mais perto e os pontos de parada do coletivo. Dispondo de serviços de altitude para ciclistas, é possível identificar as variações do terreno em metros durante o trajeto, além de levar em conta a estrutura cicloviária da cidade. Às vezes, esse caminho pode nem ser o mais direto entre os dois pontos, mas ele pretende ser o mais seguro e agradável para quem está pedalando \cite{google:2019}.
 
