@@ -4,18 +4,33 @@
 Neste capítulo estão descritas as ferramentas utilizadas para desenvolvimento deste
 trabalho.
 
-%\section{PHP}
+\section{Maps JavaScript API}
 
-\section{Laravel} 
+\section{PHP}
+
+\section{Laravel}
+Laravel é um \textit{framework} livre, de código aberto, voltado para web e feito em PHP, tem como principal característica ajudar a desenvolver aplicações seguras e performáticas de forma rápida, com código limpo e simples, já que ele incentiva o uso de boas práticas de programação e utiliza o padrão PSR-2 como guia para estilo de escrita do código. Foi criado por Taylor Otwell e tem como principal função desenvolver aplicações web com padrão de arquitetura MVC. Algumas características nativa do Laravel são sua sintaxe descomplicada e concisa, um sistema modular com gerenciador de dependências dedicado, várias formas de acesso a banco de dados relacionais e vários utilitários indispensáveis no auxílio ao desenvolvimento e manutenção de sistemas. O código fonte do Laravel está hospedado no GitHub e licenciado sob os termos da licença MIT \cite{portalgsti:laravel}. 
+
+Segundo \citeonline{locaweb:laravel}, \textit{framework} que está no top \textit{trends} dos mais buscados no Google, isso desde agosto de 2014, que coincide com o ano de lançamento da versão 5.0. Sua divisão em rotas, \textit{controllers} e \textit{models}, sendo compatível com diversos bancos de dados, trabalhando de forma relacional ou orientada a objetos como: MySQL, Postgress, Redis, MongoDB, Cassandra e SQL Server, utilizando \textit{features} Scaffold ou Internacionalização (i18n), faz com que o Laravel seja altamente compatível. Sendo assim, basta trocar as configurações e apontar qual banco de dados deseja e o sistema já funciona se a estrutura estiver pronta, utilizando uma implementação simples do ActiveRecord chamada de Eloquent ORM, que é uma ferramenta que traz várias funcionalidades para facilitar a inserção, atualização, busca e exclusão de registros. Para a criação de interface gráfica, o Laravel utiliza uma \textit{engine} de \textit{template} chamada Blade, que traz uma gama de ferramentas que ajudam a criar interfaces bonitas e funcionais de forma rápida e evitar a duplicação de código.
+
+\begin{citacao}
+ O Laravel é uma estrutura de aplicativos da web com sintaxe expressiva e elegante. Acreditamos que o desenvolvimento deve ser uma experiência agradável e criativa para ser verdadeiramente gratificante. O Laravel tenta aliviar a dor do desenvolvimento, facilitando tarefas comuns usadas na maioria dos projetos da web \cite{laravel}.
+\end{citacao}
+
+Com sua baixa curva de aprendizagem e elegância, seu grande diferencial é a grande quantidade de recursos nativos que o mesmo contém para auxiliar o processo de desenvolvimento, além disso o \textit{framework} tem como objetivo aumentar a velocidade de codificação, sem esquecer características importantes como a segurança e performance da aplicação.
+
+%https://www.ijcter.com/papers/volume-2/issue-6/comparison-of-procedural-php-with-codeigniter-and-laravel-framework.pdf
+Segundo \citeonline{comparisonLaravel}, afirmaram que ao comparar PHP procedural com CodeIgniter e Laravel, o Laravel tem bom desempenho e menos tempo de execução para todas as quatro ações. Os resultados de dez entradas como média para as quatro ações são apresentados na \autoref{fig:comparisonLaravel} .
 
 \begin{figure}[H]
     \centering
-    \caption{History of Laravel Releases}
+    \caption{Resultado do experimento no tempo de execução}
     \includegraphics[width=0.9\textwidth]{./dados/figuras/fig8}
-    \fonte{\citeonline{LaravelRelease:2019}}
-    \label{fig:LaravelRelease}
+    \fonte{\citeonline{comparisonLaravel}}
+    \label{fig:comparisonLaravel}
 \end{figure}
 
+Para utilização do Laravel é preciso das ferramentas básicas para desenvolvimento em PHP, sugere-se o XAMPP, pois já incluem o servidor Apache, banco de dados MySql e o próprio PHP, além disso será necessário realizar a instalação do Composer, através do qual é realizada a instalação do Laravel.}
 
 \section{Apache}
 
