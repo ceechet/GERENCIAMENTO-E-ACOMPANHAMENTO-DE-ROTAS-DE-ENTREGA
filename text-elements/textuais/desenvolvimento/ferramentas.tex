@@ -45,15 +45,23 @@ Segundo \citeonline{locaweb:laravel}, Laravel é o \textit{framework} que está 
 
 Com sua baixa curva de aprendizagem e elegância, seu diferencial é a grande quantidade de recursos nativos que o mesmo contém para auxiliar o processo de desenvolvimento. Além disso, o \textit{framework} tem como objetivo aumentar a velocidade de codificação, sem esquecer características importantes como a segurança e performance da aplicação.
 
-Segundo \citeonline{comparisonLaravel}, afirmaram que ao comparar PHP procedural com CodeIgniter e Laravel, o Laravel tem bom desempenho e menos tempo de execução para todas as quatro ações. Os resultados de dez entradas como média para as quatro ações são apresentados na \autoref{fig:comparisonLaravel}.
+Segundo \citeonline{comparisonLaravel}, afirmaram que ao comparar PHP procedural com CodeIgniter e Laravel, o Laravel tem bom desempenho e menos tempo de execução para todas as quatro ações. Os resultados de dez entradas como média para as quatro ações são apresentados na \autoref{tab:comparisonLaravel}.
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
-    \caption{Resultado do experimento no tempo de execução}
-    \includegraphics[width=0.9\textwidth]{./dados/figuras/fig8}
+    \caption[Resultado do experimento no tempo de execução]{Resultado do experimento no tempo de execução
+    \label{tab:comparisonLaravel}}
+    \begin{tabular}{rrrrr}
+        \toprule
+            & CREATE    & READ      & UPDATE    & DELETE \\
+        \midrule
+            PLAIN PHP   & 0.066     & 0.063    & 0.0925   & 0.065 \\
+            CODEIGNITER & 0.0634    & 0.0747   & 0.0825   & 0.616 \\
+            LARAVEL     & 0.201     & 0.222    & 0.312    & 0.301 \\
+        \bottomrule
+    \end{tabular}
     \fonte{\citeonline{comparisonLaravel}}
-    \label{fig:comparisonLaravel}
-\end{figure}
+\end{table}
 
 \citeonline{He2015/01} também prova a eficácia do método de projeto web com base na estrutura do Laravel, criando um ambiente operacional virtual e comparando com o mesmo ambiente desenvolvido em CodeIgniter. De acordo com a \autoref{fig:He2015/01}, a eficiência do desenvolvimento baseado em Laravel é maior em comparação com o método tradicional de design da web baseado na estrutura do CodeIgniter, justificado pela escalabilidade robusta, de modo a melhorar a eficiência do desenvolvimento.
 
