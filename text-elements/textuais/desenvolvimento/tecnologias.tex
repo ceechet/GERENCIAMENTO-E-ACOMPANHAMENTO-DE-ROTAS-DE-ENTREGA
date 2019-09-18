@@ -7,7 +7,7 @@ Este Capítulo descreve as tecnologias necessárias para o desenvolvimento deste
 
 \section{API}
 %https://www.devmedia.com.br/application-programming-interface-desenvolvendo-apis-de-software/30548
-API é o acrônimo de Interface de Programação de Aplicativos. Na grande maioria das vezes uma API se comunica com diversos outros códigos interligando diversas funções em um aplicativo, como pode ser visto na \autoref{fig:api}. Esta interface de programação é um conjunto de padrões de programação que permitem a construção de aplicativos e a sua utilização. Portanto, uma API é uma abstração da funcionalidade e da implementação interna de cada componente. Com uma API é possível criar sistemas melhores e minimizar o entendimento de todos os detalhes de um componente e assim serve como um “alicerce”, abstraindo a funcionalidade e implementação interna de cada componente \cite{jaroslavapi}.
+Destaca-se do pensamento de \citeonline{pressman2009engenharia} que API é o acrônimo de Interface de Programação de Aplicativos. Na grande maioria das vezes uma API se comunica com diversos outros códigos interligando diversas funções em um aplicativo, como pode ser visto na \autoref{fig:api}. Esta interface de programação é um conjunto de padrões de programação que permitem a construção de aplicativos e a sua utilização. Portanto, uma API é uma abstração da funcionalidade e da implementação interna de cada componente. Com uma API é possível criar sistemas melhores e minimizar o entendimento de todos os detalhes de um componente e assim serve como um “alicerce”, abstraindo a funcionalidade e implementação interna de cada componente.
 
 Segundo \citeonline{jaroslavapi}, API é um conjunto de classes, seus métodos e seus campos.
 Uma boa API é o conjunto de arquivos que o aplicativo lê ou escreve, bem como seu formato. Algumas aplicações sequer fazem uso do disco rígido, assim sendo não precisam se preocupar com esse tipo de coisa. O primeiro objetivo da engenharia é produzir sistemas funcionais. Uma API também precisa ser fácil de usar, largamente adotada e produtiva.
@@ -21,6 +21,19 @@ Uma boa API é o conjunto de arquivos que o aplicativo lê ou escreve, bem como 
 \end{figure}
 
 O World Wide Web Consortium (W3C) é a principal organização de padronização da rede mundial de computadores, desenvolvendo especificações técnicas e orientações através de um processo projetado para maximizar a consenso sobre as recomendações, garantindo qualidades técnicas e editoriais, por meio do desenvolvimento de protocolos comuns e fóruns abertos que promovam a sua evolução e assegurem a sua interoperabilidade, para levar a web ao seu potencial máximo \cite{api:w3c}.
+
+\subsection{REST}
+Segundo \citeonline{rest:roy}, o REST é uma sigla que significa \textit{Representational State Transfer}, é um modelo arquitetural que define um conjunto de regras simples para implementar serviços web. Porém, a mesma não define tecnologias que devem ser utilizadas. Uma forma de implementar REST é utilizar o conceito de \textit{RESTful} que se baseia no protocolo da aplicação HTTP, no padrão de nomenclatura URI e na linguagem XML/JSON. As respostas do REST são cacheáveis. Isso dá um grande aumento de performance em clientes simples. Utilizando esse conceito, os serviços se tornam disponíveis para diferentes aplicações clientes, ou seja, não há necessidade de mudança de uma aplicação para outra, pois o serviço se concentra em um servidor próprio. 
+
+Depois de seu surgimento, começou a se tornar uma alternativa mais leve de comunicação entre computadores (cliente e servidor). Para ser considerado REST, o \textit{Web Service} deve ser ou possuir: Interface uniforme, \textit{Stateless}, \textit{Cacheável}, Cliente-Servidor, Sistema em camadas e Código sob demanda \cite{rest:roy}. 
+
+Podemos destacar os seguintes pontos:
+\begin{itemize}
+    \item Fazer uso de diferentes métodos (ou verbos) de comunicação (\textit{GET}, \textit{POST}, \textit{PUT}, \textit{DELETE}, \textit{HEAD}, \textit{OPTIONS}) do HTTP para realizar solicitações para API; 
+    \item Utilização de \textit{headers} HTTP (tanto padronizados quanto customizados); 
+    \item Definição de arquivos como recursos (cada um com seu próprio endereço)
+    \item Utilização de diferentes tipos de media \textit{type}. Exemplo, JSON ou XML para representação de dados. Por ser um formato menos verboso e normalmente menor, a transferência de dados com o uso de JSON causa uma carga menor na rede, além de ser mais facilmente consumido por clientes construídos com qualquer linguagem, em especial HTML5.
+\end{itemize}
 
 \section{Geolocalização}
 
@@ -108,7 +121,7 @@ Esta tecnologia se torna superior a sua antecessora devido a melhora de precisã
 
 %%% Original: O GPS inicialmente realiza uma busca por satélites disponíveis para auxiliá-lo na navegação, ao encontrar o primeiro satélite disponível, o aparelho recebe informações sobre a localização dos outros satélites próximos, iniciando a roteirização da localização atual do mesmo. Este processo é demorado, devido à lenta conexão GPS entre os satélites ser muito lenta.
 
-Inicialmente o GPS realiza uma busca por satélites disponíveis para auxiliá-lo na navegação. Quando o GPS encontra o primeiro satélite disponível, o aparelho recebe informações sobre a localização dos outros satélites próximos, iniciando a roteirização da localização atual do mesmo. Este processo é demorado, pelo fato de que a conexão GPS entre os satélites é muito lenta.
+Inicialmente o GPS realiza uma busca por satélites disponíveis para auxiliá-lo na navegação. Quando o GPS encontra o primeiro satélite disponível, o aparelho recebe informações sobre a localização dos outros satélites próximos, iniciando a roteirização da localização atual do mesmo. Este processo é demorado, pelo fato de que a conexão GPS entre os satélites é muito lenta \cite{oficinanetagps:2018}.
 
 %%% Original: Para dispositivos A-GPS, são utilizados servidores, como por exemplo uma torre de redes móvel (antenas de celulares) e bases (servidores) para obter as informações dos satélites constantemente. Uma vez que esses servidores estão continuamente enviando e recebendo informações dos satélites, não há atraso em demorar a conhecer a órbita e a localização exata dos satélites, o tempo para o recebimento dos dados é muito mais rápido que um GPS normal, já que os dados já estão armazenados nos servidores, que analisam os sinais fragmentados recebidos do receptor GPS e aqueles recebidos diretamente do satélite para corrigir erros, proporcionando uma localização exata do aparelho, onde o mesmo só precisará realizar alguns cálculos de triangulação com as antenas de redes móveis por final.
 
