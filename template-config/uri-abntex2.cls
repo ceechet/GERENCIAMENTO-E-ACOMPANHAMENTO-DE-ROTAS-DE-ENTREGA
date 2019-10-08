@@ -255,6 +255,8 @@
     \renewcommand{\listfigurename}{LISTA DE ILUSTRA\c{C}\~OES}
     \renewcommand{\listtablename}{LISTA DE TABELAS}
     \renewcommand{\indexname}{\'{I}NDICE REMISSIVO}
+    \renewcommand{\lstlistingname}{Fragmento de C\'{o}digo}
+    \renewcommand{\lstlistlistingname}{LISTA DE FRAGMENTOS DE C\'{O}DIGO}
 % Ajusta nomes usados com a macro \autoref
     \renewcommand{\pageautorefname}{p\'agina}
     \renewcommand{\sectionautorefname}{Se\c{c}\~ao}
@@ -264,7 +266,6 @@
 % Ajusta nome da Referências para REFERÊNCIAS
     \renewcommand{\bibname}{REFER\^ENCIAS}
 }
-
 
 % Cria a lista de quadros
 \newcommand{\listofquadrosname}{Lista de Quadros}

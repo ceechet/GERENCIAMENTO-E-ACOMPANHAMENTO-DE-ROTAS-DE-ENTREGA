@@ -1,4 +1,3 @@
-\documentclass{scrreprt}
 \makeatletter
 \usepackage{color}
 \definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
@@ -15,6 +14,29 @@
 \definecolor{lightred}{rgb}{1,0.4,0.5}
 \usepackage{upquote}
 \usepackage{listings}
+% Configura a ``Lista de Códigos'' conforme as regras da ABNT (para abnTeX2)
+\begingroup\makeatletter
+\let\newcounter\@gobble\let\setcounter\@gobbletwo
+  \globaldefs\@ne \let\c@loldepth\@ne
+  \newlistof{listings}{lol}{\lstlistlistingname}
+  \newlistentry{lstlisting}{lol}{0}
+\endgroup
+
+\renewcommand{\cftlstlistingaftersnum}{\hfill--\hfill}
+
+\let\oldlstlistoflistings\lstlistoflistings
+\renewcommand{\lstlistoflistings}{%
+   \begingroup%
+   \let\oldnumberline\numberline%
+   \renewcommand{\numberline}{\lstlistingname\space\oldnumberline}%
+   \oldlstlistoflistings%
+   \endgroup}
+%https://github.com/abntex/abntex2/wiki/HowToFormatarCodigoFonte
+%https://tex.stackexchange.com/questions/228936/setting-entries-of-list-of-listings-in-latex-package-listings
+%https://tex.stackexchange.com/questions/306858/list-of-listings-similar-to-list-of-figures?answertab=active#tab-top
+
+\lstset{numberbychapter=false, captionpos=t}
+
 % CSS
 \lstdefinelanguage{CSS}{
   keywords={color,background-image:,margin,padding,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width, transition:, transform:, transition-property, transition-duration, transition-timing-function},	

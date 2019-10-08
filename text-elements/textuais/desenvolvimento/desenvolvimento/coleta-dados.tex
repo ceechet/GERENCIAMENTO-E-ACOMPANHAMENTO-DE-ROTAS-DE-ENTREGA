@@ -1,5 +1,4 @@
-\begin{lstlisting}[caption={My Caption},captionpos=b, style=htmlcssjs]
-
+\begin{lstlisting}[caption={Função Teste}, style=htmlcssjs, label=DescriptiveLabel]
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	
 	#main {
@@ -19,4 +18,23 @@
 		font-size: 28px;
 		line-height: 62px;
 	}
+\end{lstlisting}
+
+\autoref{DescriptiveLabel}
+
+\begin{lstlisting}[caption={Função Teste 2}, style=htmlcssjs, label=DescriptiveLabel]
+Name.prototype = {
+  methodName: function(params){
+    var doubleQuoteString = "some text";
+    var singleQuoteString = 'some more text';
+    // this is a comment
+    if(this.confirmed != null && typeof(this.confirmed) == Boolean && this.confirmed == true){
+      document.createElement('h3');
+      $('#system').append("This looks great");
+      return false;
+    } else {
+      throw new Error;
+    }
+  }
+}
 \end{lstlisting}
