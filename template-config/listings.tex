@@ -36,6 +36,7 @@
 %https://tex.stackexchange.com/questions/306858/list-of-listings-similar-to-list-of-figures?answertab=active#tab-top
 
 \lstset{numberbychapter=false, captionpos=t}
+\lstset{aboveskip=10pt, belowskip=20pt}
 
 % CSS
 \lstdefinelanguage{CSS}{
@@ -97,11 +98,19 @@
   }
 }
 
+\lstdefinestyle{SQL} {
+language=SQL,
+showspaces=false,
+basicstyle=\ttfamily,
+numbers=left,
+numberstyle=\tiny
+}
+           
 \lstdefinestyle{htmlcssjs} {%
   % General design
 %  backgroundcolor=\color{editorGray},
   basicstyle={\footnotesize\ttfamily},   
-  frame=b,
+  frame=none,
   % line-numbers
   xleftmargin={0.75cm},
   numbers=left,
@@ -157,7 +166,7 @@ tabsize=4,                  % Groesse von Tabs
 extendedchars=true,         %
 breaklines=true,            % Zeilen werden Umgebrochen
 keywordstyle=\color{blue}\bfseries,
-frame=b,
+frame=none,
 commentstyle=\color{brown}\itshape,
 stringstyle=\color{editorOcher}\ttfamily, % Farbe der String
 showspaces=false,           % Leerzeichen anzeigen ?

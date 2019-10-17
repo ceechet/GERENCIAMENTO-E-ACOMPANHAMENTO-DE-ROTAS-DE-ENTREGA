@@ -43,16 +43,23 @@ Foi optado, por questões de segurança, hospedar o código-fonte do projeto em 
 
 O banco de dados escolhido para armazenar os registros foi o MySQL cuja instalação e configuração ocorreu automaticamente pelo XAMPP, que também é responsável pela instalação do servidor web local Apache. Por último, para ter acesso a manipulação do código, um editor de texto era necessário, optando-se pelo PHPStorm, uma IDE paga, mas estudantes podem conseguir licença estudantil, terminando assim a fase configuração de ambiente de desenvolvimento e garantindo aptidão para começar os trabalhos.
 
-O próximo passo foi a modelagem dos dados, onde verificou-se que seria necessário a criação das tabelas: \textit{users}, \textit{motoboys}, \textit{deliveries}, \textit{payments} e \textit{orders}. Uma sexta tabela chamada de \textit{deliveries\_orders} precisou ser criada para vincular mais de um pedido à cada entrega, onde uma \textit{trigger}, disparada \textit{after update}, ficou responsável pela atualização do status de cada pedido vinculado à entrega, esta chamada de \textit{tr\_Status\_Orders}, apresentada na \autoref{fig:trigger}.
+O próximo passo foi a modelagem dos dados, onde verificou-se que seria necessário a criação das tabelas: \textit{users}, \textit{motoboys}, \textit{deliveries}, \textit{payments} e \textit{orders}. Uma sexta tabela chamada de \textit{deliveries\_orders} precisou ser criada para vincular mais de um pedido à cada entrega, onde uma \textit{trigger}, disparada \textit{after update}, ficou responsável pela atualização do status de cada pedido vinculado à entrega, esta chamada de \textit{tr\_Status\_Orders}, apresentada no \autoref{alg:trigger}.
 
-\begin{figure}[H]
-    \centering
-    \caption{Trigger tr\_Status\_Orders}
-    \includegraphics[width=0.7\textwidth]{./dados/figuras/fig7}
-    \fonte{Autor}
-    \label{fig:trigger}
-\end{figure}
+\begin{lstlisting}[
+           caption={Trigger tr\_Status\_Orders}, label=alg:trigger, style=SQL]
+CREATE TRIGGER tr_Status_Orders 
+AFTER UPDATE ON `deliveries`
+FOR EACH ROW 
+BEGIN
+    UPDATE `orders` o SET `status` = NEW.status
+        WHERE `id` IN
+                        (SELECT `order_id`
+                        FROM `deliveries_orders`
+                        WHERE `delivery_id` = NEW.id); 
+END
+\end{lstlisting}
 
+\newpage
 \section{Coleta de dados}
 \input{text-elements/textuais/desenvolvimento/desenvolvimento/coleta-dados.tex}
 
