@@ -54,10 +54,11 @@ Na \autoref{fig:drLogin} é possível visualizar o acesso ao módulo de gerencia
 O Laravel, juntamente com o Eloquent, disponibiliza a implementação de autenticação de maneira muito simples, por meio do comando \textit{php artisan make:auth}, onde, com poucas instruções e linhas de código, é possível montar a estrutura de cadastro de usuário, recuperação de senha e memória de sessão de maneira extremamente segura, devido ao algoritmo \textit{Bcrypt}
 \footnote{Método de criptografia do tipo \textit{hash} adaptativo para senhas que apresenta uma segurança maior em relação à maioria dos outros métodos criptográficos por meio da implementação da variável “custo”, que é proporcional à quantidade de processamento necessária para criptografar a senha \cite{bcrypt}.}
 , utilizado para realizar a criptografia da senha.
+%%% Conhecido como \textit{hash} adaptativo, pois pode permanecer resistente à ataques do tipo “força-bruta” com o tempo usando custos maiores de processamento
 
 Ao realizar login, o administrador é apresentado à \textit{dashboard} do sistema, uma interface gráfica que fornece visualização fácil e rápida dos principais indicadores de desempenho, atualizados em tempo real, obtendo assim valores e médias relevantes sobre o processo de negócios. 
 
-Destaca-se na \autoref{fig:drDashboard}, além de indicadores de: Pedidos Em Aberto, Pedidos Em Rota, Motoboys Disponíveis e Pedidos Concluídos, uma barra de menus contendo: Cadastros (Motoboys e Pagamentos) e Movimentos (Entregas e Pedidos Em Aberto).
+Destaca-se na \autoref{fig:drDashboard}, além de indicadores de: Pedidos em aberto, Pedidos em rota, Motoboys disponíveis e Pedidos concluídos, uma barra de menus contendo: Cadastros (Motoboys e Pagamentos) e Movimentos (Entregas e Pedidos Em Aberto).
 
 \begin{figure}[H]
     \centering
