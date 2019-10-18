@@ -7,7 +7,7 @@ juntamente com o desenvolvimento de uma aplicação encarregada de gerenciar os 
 com um painel de controle para geração de lotes de entregas e o desenvolvimento de um módulo destinado ao motoboy, no qual consegue observar, em um mapa, a rota e pontos de parada que devem ser percorridos no lote disponível para entrega, tudo isso em tempo real.
 
 \section{Softwares utilizados}
-Esta Seção apresenta os \textit{softwares} utilizados na etapa de codificação da aplicação.
+Esta Seção apresenta os softwares utilizados na etapa de codificação da aplicação, todos gratuitos, pelo fato de diminuírem o custo de desenvolvimento, reduzirem a burocracia e possuírem grande quantidade de documentação disponível na comunidade web.
 
 \begin{itemize}
     \item PhpStorm: IDE completa de desenvolvimento para projetos codificados com a linguagem de programação PHP;
@@ -45,8 +45,7 @@ O banco de dados escolhido para armazenar os registros foi o MySQL cuja instala�
 
 O próximo passo foi a modelagem dos dados, onde verificou-se que seria necessário a criação das tabelas: \textit{users}, \textit{motoboys}, \textit{deliveries}, \textit{payments} e \textit{orders}. Uma sexta tabela chamada de \textit{deliveries\_orders} precisou ser criada para vincular mais de um pedido à cada entrega, onde uma \textit{trigger}, disparada \textit{after update}, ficou responsável pela atualização do status de cada pedido vinculado à entrega, esta chamada de \textit{tr\_Status\_Orders}, apresentada no \autoref{alg:trigger}.
 
-\begin{lstlisting}[
-           caption={Trigger tr\_Status\_Orders}, label=alg:trigger, style=SQL]
+\begin{lstlisting}[caption={Trigger tr\_Status\_Orders}, label=alg:trigger, style=SQL]
 CREATE TRIGGER tr_Status_Orders 
 AFTER UPDATE ON `deliveries`
 FOR EACH ROW 
@@ -60,20 +59,21 @@ END
 \end{lstlisting}
 
 \newpage
-\section{Coleta de dados}
-\input{text-elements/textuais/desenvolvimento/desenvolvimento/coleta-dados.tex}
-
 \section{Módulo de gerenciamento}
 \input{text-elements/textuais/desenvolvimento/desenvolvimento/mod-gerenciamento.tex}
 
+\newpage
+\section{Coleta de dados}
+\input{text-elements/textuais/desenvolvimento/desenvolvimento/coleta-dados.tex}
+
+\newpage
 \section{Consulta de dados}
 \input{text-elements/textuais/desenvolvimento/desenvolvimento/consulta-dados.tex}
 
+\newpage
 \section{Módulo de entrega}
 \input{text-elements/textuais/desenvolvimento/desenvolvimento/mod-entrega.tex}
 
-%\begin{algorithm}[H]
 %O trecho de código fonte que é apresentado a seguir demonstra como é o serviço de                login do aplicativo: 
 %, conforme apresenta a figura 19 
 %, conforme a figura 20 mostra
-%\caption{Delivery Routes - Página inicial}
