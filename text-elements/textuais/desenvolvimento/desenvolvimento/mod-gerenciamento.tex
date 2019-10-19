@@ -69,5 +69,27 @@ Destaca-se na \autoref{fig:drDashboard}, além de indicadores de: Pedidos em abe
 \end{figure}
 
 \newpage
-Para desenvolver a \textit{dashboard}
+%http://repositorio.ufu.br/handle/123456789/22185
+Este projeto foi desenvolvido em duas frentes: um desenvolvimento \textit{front-end} e outro \textit{back-end}. O \textit{front-end} foi baseado em um modelo, ou \textit{template}, chamado Pratt, uma implementação em Vue.js
+\footnote{\textit{Framework} JavaScript progressivo, de código-aberto, para a criação de interfaces de usuário.} do tema AdminLTE 5.4 (desenvolvido com Bootstrap). Já o \textit{back-end} foi feito utilizando o \textit{framework} Laravel, na linguagem PHP.
+
+O AdminLTE é um \textit{template} para desenvolvimento de \textit{dashboards} ou painéis de controle. Possui código-aberto, construído usando Bootstrap 3 e design responsivo. Por ser de código-aberto, dúvidas ou problemas encontrados podem ser postados no repositório do projeto no GitHub
+\footnote{https://github.com/acacha/adminlte-laravel}, onde qualquer membro da comunidade pode prestar ajuda e propor soluções.
+
+O Bootstrap, é a biblioteca de componentes \textit{front-end} mais popular do mundo \cite{bootstrap}, e é voltado principalmente para o desenvolvimento de projetos mobile. Todos os componentes oferecidos, como alertas, cartões e formulários, são responsivos, ou seja, eles se redimensionam, se escondem, diminuem ou ficam maiores dependendo do tamanho do dispositivo em que a página é visualizada. Atualmente a biblioteca está na versão 4, o que trouxe muitas melhorias em relação a versão 3, como a simplificação dos componentes de navegação. No entanto, a versão usada pelo AdminLTE ainda é a 3.0 e por isso esta é a versão utilizada neste projeto.
+
+O Pratt é uma implementação em Vue.js baseado no \textit{template} responsivo AdminLTE, que por sua vez utiliza o \textit{framework} Bootstrap. Utilizar projetos como o Pratt como base para desenvolver outras aplicações reduz o tempo necessário para iniciar o desenvolvimento e ajuda a evitar possíveis problemas de configurações que um programador pode encontrar. 
+
+Dessa forma, o Pratt vem com uma configuração pronta do Webpack (\autoref{fig:webpack}), um \textit{module blunder}, cujo principal objetivo além de automatizar processos como a ofuscação e minificação de código e outras operações de pré-processamento, é permitir que o código seja escrito de forma modular, o que faz com que o desenvolvedor possa aproveitar todas as vantagens provindas do uso do \textit{module blunder}, sem ter que se preocupar com sua configuração inicial.
+
+\begin{figure}[H]
+    \centering
+    \caption{Webpack - Module blunder}
+    \includegraphics[width=0.6\textwidth]{./dados/figuras/fig17}
+    \fonte{\citeonline{webpack}}
+    \label{fig:webpack}
+\end{figure}
+
+\newpage
+
 %%% Rev-Madalozzo: listar todos os pacotes de terceiros AdminLTE e PDF
