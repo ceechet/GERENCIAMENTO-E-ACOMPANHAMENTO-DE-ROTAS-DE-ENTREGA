@@ -1,6 +1,6 @@
- Inicialmente, o objetivo era construir uma aplicação completa para gestão de vendas, focando na geração do pedido e entrega, sendo essa para qualquer ramo de atividade. Porém descobriu-se a possibilidade de um nicho de mercado ainda não explorado e sem concorrentes, em que não é preciso disputar clientes com grandes empresas renomadas e maduras no assunto.
+Inicialmente, o objetivo era construir uma aplicação completa para gestão de vendas, focando na geração do pedido e entrega, sendo essa para qualquer ramo de atividade. Porém, descobriu-se a possibilidade de um nicho de mercado ainda não explorado e sem concorrentes, em que não é preciso disputar clientes com grandes empresas renomadas e maduras no assunto.
  
- A aplicação desenvolvida foca no gerenciamento das rotas de entregas dos pedidos gerados via e-PDV já operantes, necessitando apenas da disponibilização de uma API no formato de arquivo JSON (\autoref{fig:drHttpAPI}), essa compondo-se de dados essenciais para realização da integração automática abordada na próxima Seção.
+A aplicação desenvolvida foca no gerenciamento das rotas de entregas dos pedidos gerados via e-PDV já operantes, necessitando apenas da disponibilização de uma API no formato de arquivo JSON (\autoref{fig:drHttpAPI}), essa compondo-se de dados essenciais para realização da integração automática abordada na próxima Seção.
  
   \begin{figure}[H]
     \centering
@@ -9,8 +9,8 @@
     \fonte{\citeonline{iFood}}
     \label{fig:drHttpAPI}
 \end{figure}
- 
- Primeiramente é preciso entender os possíveis status e o fluxo de um pedido integrado na Delivery Routes, ambos representados na \autoref{tab:drStatusPedido} e na \autoref{fig:drStatusPedido}.
+
+Primeiramente, é preciso entender os possíveis status e o fluxo de um pedido integrado na Delivery Routes, ambos representados na \autoref{tab:drStatusPedido} e na \autoref{fig:drStatusPedido}.
  
  \begin{table}[H]
     \centering
@@ -19,7 +19,7 @@
 \begin{tabular}{|l|l|}
 \hline
 \textbf{Status} & \textbf{Descrição} \\ \hline
-PLACED & Indica um pedido foi colocado no sistema. \\ \hline
+PLACED & Indica que um pedido foi colocado no sistema. \\ \hline
 CONFIRMED & Indica um pedido confirmado. \\ \hline
 INTEGRATED & Indica um pedido que foi integrado no sistema. \\ \hline
 CANCELLED & Indica um pedido que foi cancelado. \\ \hline
@@ -30,7 +30,7 @@ CONCLUDED & Indica um pedido que foi concluído. \\ \hline
     \fonte{\citeonline{iFood}}
 \end{table}
  
- \begin{figure}[H]
+  \begin{figure}[H]
     \centering
     \caption{Delivery Routes - Fluxo do status do pedido}
     \includegraphics[width=0.6\textwidth]{./dados/figuras/fig15}
@@ -51,12 +51,12 @@ Na \autoref{fig:drLogin} é possível visualizar o acesso ao módulo de gerencia
 \end{figure}
 
 %https://laravel.com/docs/5.7/hashing
-O Laravel, juntamente com o Eloquent, disponibiliza a implementação de autenticação de maneira muito simples, por meio do comando \textit{php artisan make:auth}, onde, com poucas instruções e linhas de código, é possível montar a estrutura de cadastro de usuário, recuperação de senha e memória de sessão de maneira extremamente segura, devido ao algoritmo \textit{Bcrypt}
+O Laravel, juntamente com o Eloquent ORM, disponibiliza a implementação de autenticação de maneira muito simples, por meio do comando \textit{php artisan make:auth}, onde, com poucas instruções e linhas de código, é possível montar a estrutura de cadastro de usuário, recuperação de senha e memória de sessão de maneira extremamente segura, devido ao algoritmo \textit{Bcrypt}
 \footnote{Método de criptografia do tipo \textit{hash} adaptativo para senhas que apresenta uma segurança maior em relação à maioria dos outros métodos criptográficos por meio da implementação da variável “custo”, que é proporcional à quantidade de processamento necessária para criptografar a senha \cite{bcrypt}.}
 , utilizado para realizar a criptografia da senha.
 %%% Conhecido como \textit{hash} adaptativo, pois pode permanecer resistente à ataques do tipo “força-bruta” com o tempo usando custos maiores de processamento
 
-Ao realizar login, o administrador é apresentado à \textit{dashboard} do sistema, uma interface gráfica que fornece visualização fácil e rápida dos principais indicadores de desempenho, atualizados em tempo real, obtendo assim valores e médias relevantes sobre o processo de negócios. 
+Ao realizar login, o usuário é encaminhado à \textit{dashboard} do sistema, uma interface gráfica que fornece visualização fácil e rápida dos principais indicadores de desempenho, atualizados em tempo real, obtendo assim valores e médias relevantes sobre o processo de negócios. 
 
 Destaca-se na \autoref{fig:drDashboard}, além de indicadores de: Pedidos em aberto, Pedidos em rota, Motoboys disponíveis e Pedidos concluídos, uma barra de menus contendo: Cadastros (Motoboys e Pagamentos) e Movimentos (Entregas e Pedidos Em Aberto).
 
@@ -73,23 +73,57 @@ Destaca-se na \autoref{fig:drDashboard}, além de indicadores de: Pedidos em abe
 Este projeto foi desenvolvido em duas frentes: um desenvolvimento \textit{front-end} e outro \textit{back-end}. O \textit{front-end} foi baseado em um modelo, ou \textit{template}, chamado Pratt, uma implementação em Vue.js
 \footnote{\textit{Framework} JavaScript progressivo, de código-aberto, para a criação de interfaces de usuário.} do tema AdminLTE 5.4 (desenvolvido com Bootstrap). Já o \textit{back-end} foi feito utilizando o \textit{framework} Laravel, na linguagem PHP.
 
+O Bootstrap, é a biblioteca de componentes \textit{front-end} mais popular do mundo \cite{bootstrap}, e é voltado principalmente para o desenvolvimento de projetos mobile. Todos os componentes oferecidos, como alertas, cartões e formulários, são responsivos, ou seja, eles se redimensionam, se escondem, diminuem ou ficam maiores dependendo do tamanho do dispositivo em que a página é visualizada. Atualmente a biblioteca está na versão 4, o que trouxe muitas melhorias em relação a versão 3, como a simplificação dos componentes de navegação. No entanto, a versão usada pelo AdminLTE ainda é a 3.0 e por isso esta é a versão utilizada neste projeto.
+
 O AdminLTE é um \textit{template} para desenvolvimento de \textit{dashboards} ou painéis de controle. Possui código-aberto, construído usando Bootstrap 3 e design responsivo. Por ser de código-aberto, dúvidas ou problemas encontrados podem ser postados no repositório do projeto no GitHub
 \footnote{https://github.com/acacha/adminlte-laravel}, onde qualquer membro da comunidade pode prestar ajuda e propor soluções.
 
-O Bootstrap, é a biblioteca de componentes \textit{front-end} mais popular do mundo \cite{bootstrap}, e é voltado principalmente para o desenvolvimento de projetos mobile. Todos os componentes oferecidos, como alertas, cartões e formulários, são responsivos, ou seja, eles se redimensionam, se escondem, diminuem ou ficam maiores dependendo do tamanho do dispositivo em que a página é visualizada. Atualmente a biblioteca está na versão 4, o que trouxe muitas melhorias em relação a versão 3, como a simplificação dos componentes de navegação. No entanto, a versão usada pelo AdminLTE ainda é a 3.0 e por isso esta é a versão utilizada neste projeto.
-
 O Pratt é uma implementação em Vue.js baseado no \textit{template} responsivo AdminLTE, que por sua vez utiliza o \textit{framework} Bootstrap. Utilizar projetos como o Pratt como base para desenvolver outras aplicações reduz o tempo necessário para iniciar o desenvolvimento e ajuda a evitar possíveis problemas de configurações que um programador pode encontrar. 
 
-Dessa forma, o Pratt vem com uma configuração pronta do Webpack (\autoref{fig:webpack}), um \textit{module blunder}, cujo principal objetivo além de automatizar processos como a ofuscação e minificação de código e outras operações de pré-processamento, é permitir que o código seja escrito de forma modular, o que faz com que o desenvolvedor possa aproveitar todas as vantagens provindas do uso do \textit{module blunder}, sem ter que se preocupar com sua configuração inicial.
+Dessa forma, o Pratt vem com uma configuração pronta do Webpack (\autoref{fig:webpack}), um \textit{module blunder}, cujo principal objetivo, além de automatizar processos como a ofuscação, minificação e outras operações de pré-processamento de código, é permitir que o código seja escrito de forma modular, o que faz com que o desenvolvedor possa aproveitar todas as vantagens provindas do uso do \textit{module blunder}, sem ter que se preocupar com sua configuração inicial.
 
 \begin{figure}[H]
     \centering
     \caption{Webpack - Module blunder}
-    \includegraphics[width=0.6\textwidth]{./dados/figuras/fig17}
+    \includegraphics[width=0.8\textwidth]{./dados/figuras/fig17}
     \fonte{\citeonline{webpack}}
     \label{fig:webpack}
 \end{figure}
 
 \newpage
+Ao selecionar a opção de menu “Motoboys”, o usuário consegue, então, gerenciá-los. Conforme é mostrado na \autoref{fig:drListaMotobys}, há uma tabela com o identificador, nome, CPF, e-mail, telefone e data de criação dos registros cadastrados na base de dados. A tabela também conta com botões para editar, excluir ou criar um registro. A edição do registro é apresentada na \autoref{fig:drEdicaoMotoby}.
 
-%%% Rev-Madalozzo: listar todos os pacotes de terceiros AdminLTE e PDF
+\begin{figure}[H]
+    \centering
+    \caption{Delivery Routes - Lista de motoboys}
+    \includegraphics[width=1.0\textwidth]{./dados/figuras/fig18}
+    \fonte{Autor}
+    \label{fig:drListaMotobys}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Delivery Routes - Edição do motoboy}
+    \includegraphics[width=0.9\textwidth]{./dados/figuras/fig19}
+    \fonte{Autor}
+    \label{fig:drEdicaoMotoby}
+\end{figure}
+
+\newpage
+Igualmente à tela de motoboys, a tela de pagamentos possui também uma tabela, dessa vez com o identificador e descrição dos registros cadastrados na base de dados, essa visualizada na \autoref{fig:drListaPagamentos}. A edição do registro é apresentada na \autoref{fig:drEdicaoPagamento}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Delivery Routes - Lista de pagamentos}
+    \includegraphics[width=1.0\textwidth]{./dados/figuras/fig20}
+    \fonte{Autor}
+    \label{fig:drListaPagamentos}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Delivery Routes - Edição do pagamento}
+    \includegraphics[width=0.9\textwidth]{./dados/figuras/fig21}
+    \fonte{Autor}
+    \label{fig:drEdicaoPagamento}
+\end{figure}
