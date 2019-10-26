@@ -1,9 +1,23 @@
 % CONCLUSÃO--------------------------------------------------------------------
 
 \chapter{CONCLUSÃO E TRABALHOS FUTUROS}
-A
-%O desenvolvimento da aplicação permitiu explorar um grande acervo tecnológico, começando pelo paradigma de desenvolvimento móvel híbrido no qual se utiliza uma mistura de tecnologias web e nativas, gerando automaticamente aplicativos multiplataforma.
+O desenvolvimento do trabalho possibilitou explorar um grande acervo tecnológico, começando pela interação por meio de rotas com a Google Maps, gerando automaticamente sugestões de percursos baseados no fluxo do trânsito do momento. Foi possível perceber também que, por muitas vezes, é uma grande vantagem optar por essa tecnologia, pois contempla 99\% de cobertura no mundo, além do fato de existir uma documentação de fácil acesso para realizar a integração de aplicações web com as APIs de geolocalização. Por esse motivo, optou-se pelo desenvolvimento da aplicação em plataforma web, além do fato de existirem \textit{frameworks} como Laravel, Vue.js e Bootstrap que aceleram muito mais esse processo.
 
-\newpage
-B
-%Os trabalhos futuros terão como objetivo melhorar e expandir as funcionalidades da aplicação.
+Durante o desenvolvimento, o tópico que necessitou maior atenção foi o cálculo de direções entre dois ou mais locais, por meio do Directions Service, um serviço cedido pelo Google Maps JavaScript API, que recebe solicitações de direção e retorna um caminho eficiente. Por utilizar \textit{waypoints} e \textit{current position}, a etapa de desenvolvimento do mesmo foi a mais complexa.
+
+De acordo com a análise realizada durante o estudo dos conceitos utilizados, observou-se que as grandes empresas de comércio online pecam no pós-venda, atrasando a entrega de seus produtos. Com esta motivação, foi possível criar um meio de melhorar essa logística e recomendar aos usuários um planejamento, instigando a insatisfação de seus clientes.
+
+Em meio a este cenário de grande crescimento de pedido online e \textit{delivery} de produtos, a aplicação Delivery Routes, desenvolvido neste trabalho, é uma ferramenta com grande possibilidade de aceitação no mercado por diversos fatores, começando pelo fato de oferecer um serviço integrado aos \textit{deliveries} já instalados e operantes nos estabelecimentos, de maneira organizada e documentada, o que prevê maior praticidade para a \textit{software house} realizar a integração entre os serviços.
+
+%O aplicativo permite também que o 
+%A aplicação torna mais fácil para o 
+%O aplicativo facilita também
+
+Os trabalhos futuros terão como foco aprimorar as funcionalidades da aplicação, criando novas telas padrões (fale conosco, ajuda, sobre, configurações, entre outras) que compõem um aplicativo. 
+Realizar a implementação de um algoritmo, a partir de um grafo, que sugira ao usuário encontrar o menor caminho entre os pontos de origem e destino, incluindo os pontos de parada, é um dos principais processos planejados para o futuro deste aplicativo, permitindo ao usuário avaliar um possível caminho e tomar uma decisão. Entretanto, o caminho pensado pode não ser o de menor comprimento e não ser o mais eficiente.
+
+Para o módulo de entregas será implementada uma nova \textit{feature}, que permitirá ao motoboy interagir com o método de navegação por voz durante o percurso, com suporte nos principais sistemas operacionais do mercado para não haver limitações. Serão trabalhados melhorias de fluxos de processos para evitar possíveis problemas de desempenho. Também será necessário alocar a aplicação em servidores externos para melhorar a capacidade de processamento com os cálculos de rotas.
+
+Pretende-se também criar um modelo de autorização baseado no padrão \textit{OAuth2} com \textit{client\_id} e \textit{client\_secret}, para identificação na API por meio de credenciais (\textit{token}). Toda comunicação deverá ser realizada sob HTTPS. Um ambiente de homologação será oferecido para auxiliar no desenvolvimento.
+
+Módulos futuros da aplicação contemplarão também a aproximação do cliente final com o estabelecimento. Neste módulo os clientes terão a facilidade de realizar pagamentos direto pelo aplicativo e informar o recebimento do produto. Com essa funcionalidade presente, também será possível calcular precisamente o custo de cada deslocamento.
