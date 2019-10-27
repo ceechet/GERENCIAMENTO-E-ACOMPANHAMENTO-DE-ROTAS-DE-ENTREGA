@@ -44,7 +44,7 @@ O banco de dados escolhido para armazenar os registros foi o MySQL, cuja instala
 
 O próximo passo foi a modelagem dos dados, onde verificou-se que seria necessário a criação das seguintes tabelas com o recurso \textit{Migration}: \textit{users}, \textit{motoboys}, \textit{deliveries}, \textit{payments} e \textit{orders}. Uma sexta tabela chamada de \textit{deliveries\_orders} precisou ser criada para vincular mais de um pedido à cada entrega, onde uma \textit{trigger}, disparada via \textit{after update}, ficou responsável pela atualização do status de cada pedido vinculado à entrega, esta chamada de \textit{tr\_Status\_Orders}, apresentada no \autoref{alg:trigger}.
 
-\begin{lstlisting}[caption={Trigger tr\_Status\_Orders}, label=alg:trigger, style=SQL]
+\begin{lstlisting}[caption={Delivery Routes - Trigger tr\_Status\_Orders}, label=alg:trigger, style=SQL]
 CREATE TRIGGER tr_Status_Orders AFTER UPDATE ON `deliveries`
 FOR EACH ROW BEGIN
     UPDATE `orders` o SET `status` = NEW.status WHERE `id` IN
@@ -58,7 +58,6 @@ O recurso do Laravel chamado \textit{Migration}, é tem por objetivo gerenciar a
 \section{Módulo de gerenciamento}
 \input{text-elements/textuais/desenvolvimento/desenvolvimento/mod-gerenciamento.tex}
 
-\newpage
 \section{Coleta de dados}
 \input{text-elements/textuais/desenvolvimento/desenvolvimento/coleta-dados.tex}
 

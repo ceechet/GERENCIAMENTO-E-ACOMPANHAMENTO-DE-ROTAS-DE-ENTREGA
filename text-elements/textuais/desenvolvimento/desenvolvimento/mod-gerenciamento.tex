@@ -140,3 +140,60 @@ Ao selecionar a opção de menu “Entregas” (\autoref{fig:drListaEntregas}) �
     \fonte{Autor}
     \label{fig:drListaEntregas}
 \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \caption{Delivery Routes - Lista de pedidos em aberto}
+    \includegraphics[width=1.0\textwidth]{./dados/figuras/fig29}
+    \fonte{Autor}
+    \label{fig:drListaPedidos}
+\end{figure}
+
+\newpage
+Na \autoref{fig:drListaPedidos} é apresentada a tela de “Pedidos Em Aberto”, onde os dados são apresentados quando, via requisição do tipo \textit{GET} no endpoint \textit{“/orders/opened”} na API do software principal do estabelecimento, executada pela \textit{route}: \textit{/orders/index}. Como resposta o servidor informa um objeto JSON com a lista dos pedidos com \textit{status} \textit{PLACED}. No \autoref{alg:orderIndex} é apresentada a função que integra os pedidos no Delivery Routes.
+
+\begin{lstlisting}[caption={Delivery Routes - Função integradora de pedidos}, style=htmlcssjs, label=alg:orderIndex]
+public function index() {
+    $req = Request();
+    $data = json_decode(file_get_contents('http://127.0.0.1:8000/orders/opened'));
+    foreach ($data as $key => $item) {
+            Order::create([
+                    'id' => $item['id'],
+                    'latitude' => $item['latitude'],
+                    'longitude' => $item['longitude'],
+                    'payment_id' => $item['payment_id'],
+                    'totalPrice' => $item['totalPrice'],
+                    'status' => 'PLACED']);
+        $req->session()->flash('mensagem-sucesso', 'Pedidos atualizados.');
+    }
+
+    $this->changePriority();
+    $orders = Order::all()->where('status', '=', 'CONFIRMED')->sortBy('priority');
+    return view('orders.index', ['orders'=> $orders]);
+}
+\end{lstlisting}
+
+Essa função chama também um método denominado \textit{changePriority()}, que por meio das APIs Distance Matrix e Geocoder do Google Maps, preenchem os campos \textit{distance} e \textit{formatted\_address} dos pedidos (\autoref{alg:changePriority}). Além disso, é feita a alteração do \textit{status} dos pedidos integrados para \textit{CONFIRMED}.
+
+A partir do campo \textit{distance}, preenchido anteriormente, é agregada a prioridade sugerida pela aplicação. A regra aplicada nessa etapa consiste em analisar qual o pedido se encontra mais próximo à posição do usuário no momento da requisição à Distance Matrix API.
+
+Com todos os dados preenchidos (endereço, distância e prioridade), é possível analisar e gerenciar as informações sugeridas para cada pedido.
+
+\newpage
+\begin{lstlisting}[caption={Delivery Routes - Função de troca de prioridade dos pedidos}, style=htmlcssjs, label=alg:changePriority]
+ private function changePriority() {
+    $orders = Order::all()->where('status', '=', 'PLACED');
+    foreach ($orders as $item) {
+        $coordinates = GoogleMaps::geocodeAddress($item->latitude, $item->longitude);
+        $distance = GoogleMaps::distanceMatrix($item->latitude, $item->longitude);
+        $item->update(['formatted_address' => $coordinates['formatted_address'], 'status' => 'CONFIRMED', 'distance' => $distance['distance']]);
+    }
+
+    $orders = Order::all()->where('status', '=', 'CONFIRMED')->sortBy('distance');
+    $priority = 1;
+    foreach ($orders as $item) {
+        $item->update(['priority' => $priority]);
+        $priority++;
+    }
+}
+\end{lstlisting}
