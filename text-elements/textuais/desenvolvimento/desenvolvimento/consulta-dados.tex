@@ -12,9 +12,9 @@ Nesse momento os possíveis \textit{status} do pedido poderem ser: \textit{INTEG
     \label{fig:drAPIorder}
 \end{figure}
 
-Como resultado dessa consulta (como demonstra o \autoref{alg:getOrder}), o servidor entrega um objeto JSON com os respectivos dados solicitados pela rota, por meio da ferramenta  \textit{Resources}, exercendo a sua função como um camada de tratamento entre o Eloquent e as respostas JSON que são expostas pela API. Essas classes, criadas ao executar o comando \textit{php artisan make:resource OrdersResource} através do Artisan, permitem transformar facilmente, \textit{models} e \textit{collections} em JSON.
+Como resultado dessa consulta (como demonstra o \autoref{alg:getOrder}), o servidor entrega um objeto JSON com os respectivos dados solicitados pela \textit{route}, por meio da ferramenta  \textit{Resources}, exercendo a sua função como um camada de tratamento entre o Eloquent e as respostas JSON que são expostas pela API. Essas classes, criadas ao executar o comando \textit{php artisan make:resource OrdersResource} através do Artisan, permitem transformar facilmente, \textit{models} e \textit{collections} em JSON.
 
-\begin{lstlisting}[caption={Delivery Routes - Rota order}, style=htmlcssjs, label=alg:getOrder]
+\begin{lstlisting}[caption={Delivery Routes - Route order}, style=htmlcssjs, label=alg:getOrder]
 Route::get('/order/{id}', function ($order_id) {
     return new OrdersResource(Order::find($order_id));
 });
