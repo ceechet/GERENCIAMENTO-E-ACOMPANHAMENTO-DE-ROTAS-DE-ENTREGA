@@ -1,0 +1,81 @@
+Esse domínio do MVC é responsável por direcionar os \textit{requests} conforme a regra de negócio, também de acordo com a arquitetura do projeto, ele é responsável por autenticar o usuário e garantir que as rotas do sistema estão sendo acessadas por alguém autenticado. 
+
+No caso dos controladores também foi criado um específico para cada classe, onde ele será responsável por direcionar os pedidos conforme a especificidade. Dessa forma, podemos utilizar como exemplo o caso da classe Motoboy, com o controlador representado no \autoref{alg:controllerMotoboy}.
+
+\begin{lstlisting}[caption={Delivery Routes - Exemplo de um Controller: Motoboy}, style=htmlcssjs, label=alg:controllerMotoboy]
+<?php
+class MotoboysController extends Controller {
+    public function index() {
+        $item = Motoboy::all();
+        return view('motoboys.index', ['motoboys' => $item]);
+    }
+    public function create() {
+        return view('motoboys.create');
+    }
+    public function store(MotoboysRequest $request) {
+        Motoboy::create($request->all());
+        Request()->session()->flash('mensagem-sucesso', 'Registro salvo com sucesso.');
+        return redirect()->route('motoboys');
+    }
+    public function destroy($id) {
+        Motoboy::find($id)->delete();
+        Request()->session()->flash('mensagem-sucesso', 'Registro excluso com sucesso.');
+        return redirect()->route('motoboys');
+    }
+    public function edit($id) {
+        $item = Motoboy::find($id);
+        return view('motoboys.edit', compact('item'));
+    }
+    public function update(MotoboysRequest $request, $id) {
+        Motoboy::find($id)->update($request->all());
+        Request()->session()->flash('mensagem-sucesso', 'Registro salvo com sucesso.');
+        return redirect()->route('motoboys');
+    }
+}
+\end{lstlisting}
+
+\newpage
+\begin{table}[H]
+    \centering
+    \caption{Delivery Routes - Exemplo de router do back-end
+    \label{tab:drRoutes}}
+\begin{tabular}{llp{9.2cm}l}
+\textbf{Método} & \textbf{URI} & \textbf{Ação} \\
+GET & / & Exibe a dashboard do aplicativo. \\
+GET & register & Exibe o formulário de inscrição do aplicativo. \\
+POST & register & Manipula uma solicitação de registro para o aplicativo. \\
+GET & login & Exibe o formulário de login do aplicativo. \\
+POST & login & Manipula uma solicitação de login para o aplicativo. \\
+POST & password/email & Envia um link de redefinição para o usuário especificado. \\
+GET & password/reset & Exibe o formulário para solicitar um link de redefinição de senha. \\
+GET & password/reset/\{token\} & Exibe a visualização de redefinição de senha para o token fornecido. \\
+POST & password/reset & Redefine a senha do usuário fornecido. \\
+POST & logout & Desconecta o usuário do aplicativo. \\
+GET & motoboys & Exibe a listagem de motoboys cadastrados. \\
+GET & motoboys/create & Exibe o formulário para cadastrar um novo motoboy. \\
+POST & motoboys/store & Manipula uma solicitação de cadastro de um motoboy. \\
+GET & motoboys/\{id\}/edit & Manipula uma solicitação de edição de um motoboy. \\
+PUT & motoboys/\{id\}/update & Manipula uma solicitação de atualização de um motoboy. \\
+GET & motoboys/\{id\}/destroy & Manipula uma solicitação de exclusão de um motoboy. \\
+GET & payments & Exibe a listagem de pagamentos cadastrados. \\
+GET & payments/create & Exibe o formulário para cadastrar um novo pagamento. \\
+POST & payments/store & Manipula uma solicitação de cadastro de um pagamento. \\
+GET & payments/\{id\}/edit & Manipula uma solicitação de edição de um pagamento. \\
+PUT & payments/\{id\}/update & Manipula uma solicitação de atualização de um pagamento. \\
+GET & payments/\{id\}/destroy & Manipula uma solicitação de exclusão de um pagamento. \\
+GET & orders & Exibe a listagem de pedidos disponíveis para integração. \\
+GET & order/\{id\} & Retorna os atributos do pedido desejado em formato JSON. \\
+GET & deliveries & Exibe a listagem de entregas cadastradas. \\
+GET & deliveries/store & Manipula uma solicitação de cadastro de uma entrega. \\
+GET & deliveries/\{id\}/ticket & Manipula uma solicitação de impressão do ticket de uma entrega. \\
+GET & delivering/\{id\} & Retorna os atributos dos pedidos da entrega desejada em formato JSON. \\
+GET & deliveries/\{id\}/view & Manipula uma solicitação de início de um entrega. \\
+GET & deliveries/\{id\}/dispatched & Manipula uma solicitação de despacho de uma entrega. \\
+GET & deliveries/\{id\}/concluded & Manipula uma solicitação de conclusão de uma entrega. \\
+GET & deliveries/\{id\}/cancelled & Manipula uma solicitação de cancelamento de uma entrega.
+\end{tabular}
+    \fonte{Autor}
+\end{table}
+
+\newpage
+Além de implementar os controladores de todas as classes, foi necessário estabelecer quais seriam as rotas e quais controles serão chamados de acordo com a rota. Para isso o \textit{framework} Laravel disponibiliza um \textit{router}, responsável por organizar as rotas e direciona-las de acordo com o controlador (\autoref{tab:drRoutes}). Nesse mesmo \textit{router} também direciona as rotas de autenticação caso o usuário não esteja logado.
