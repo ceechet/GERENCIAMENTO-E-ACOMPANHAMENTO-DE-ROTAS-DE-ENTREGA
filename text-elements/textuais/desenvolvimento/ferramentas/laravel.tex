@@ -14,14 +14,12 @@ Segundo \citeonline{comparisonLaravel}, afirmaram que ao comparar PHP procedural
     \centering
     \caption{Resultado do experimento no tempo de execução
     \label{tab:comparisonLaravel}}
-    \begin{tabular}{rrrrr}
-        \toprule
-            & CREATE    & READ      & UPDATE    & DELETE \\
-        \midrule
-            PLAIN PHP   & 0.066     & 0.063    & 0.0925   & 0.065 \\
-            CODEIGNITER & 0.0634    & 0.0747   & 0.0825   & 0.616 \\
-            LARAVEL     & 0.201     & 0.222    & 0.312    & 0.301 \\
-        \bottomrule
+    \begin{tabular}{|r|r|r|r|r|}
+            \hline
+            & CREATE    & READ      & UPDATE    & DELETE \\ \hline
+            PLAIN PHP   & 0.066     & 0.063    & 0.0925   & 0.065 \\ \hline
+            CODEIGNITER & 0.0634    & 0.0747   & 0.0825   & 0.616 \\ \hline
+            LARAVEL     & 0.201     & 0.222    & 0.312    & 0.301 \\ \hline
     \end{tabular}
     \fonte{\citeonline{comparisonLaravel}}
 \end{table}
@@ -37,6 +35,3 @@ Segundo \citeonline{comparisonLaravel}, afirmaram que ao comparar PHP procedural
 \end{figure}
 
 %%%Para utilização do Laravel é preciso das ferramentas básicas para desenvolvimento em PHP, sugere-se: o XAMPP, pois já incluem o servidor Apache, banco de dados MySql e o próprio PHP, além disso será necessário realizar a instalação do Composer, através do qual é realizada a instalação do Laravel.
-
-
-%%% Rev-Madalozzo: Não li todo o texto ainda, mas acho que poderia explorar mais o laravel. Falando do EloquentORM, do Artisan, do Kernel que ele tem, do conceito de rotas, etc. Este texto está ok, o problema é q ele está marketeiro (querendo vender a ideia), falta o pq ele eh bom.

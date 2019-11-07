@@ -1,0 +1,18 @@
+%http://repositorio.ufu.br/handle/123456789/26374
+%http://www.repository.ufrpe.br/handle/123456789/1427
+O Eloquent é o \textit{Object Relational Mapper} (ORM) padrão do Laravel. É uma técnica de desenvolvimento de software usada para reproduzir tabelas de banco de dado sem formato de objetos relacionais, deixando a manutenção dos dados mais simples e fácil. Com esta técnica o programador não precisa escrever códigos na linguagem \textit{Structured Query Language} (SQL). Com a interface ORM é possível realizar operações de CRUD, além de criar as tabelas e montar relacionamentos 1:1 (um para um), 1:N (um para muitos) e N:M (muitos para muitos). Utilizando um padrão de registro ativo, o Eloquent transforma a tabela do banco de dados em uma estrutura \textit{Model-View-Controller} (MVC). Por exemplo, para listar todos as entregas da tabela de entregas ou encontrar uma entrega específica basta usar funções simples e intuitivas que equivalem à \textit{query} SQL desejada (\autoref{tab:Eloquent}).
+
+\begin{table}[H]
+    \centering
+    \caption{Comparativo SQL vs. Eloquent ORM
+    \label{tab:Eloquent}}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{SQL} & \textbf{Eloquent ORM} \\ \hline
+select * from deliveries & Delivery::all() \\ \hline
+select * from deliveries where id = 1 & Delivery::find(1) \\ \hline
+\end{tabular}
+    \fonte{Autor}
+\end{table}
+
+Segundo \citeonline{stauffer2017desenvolvendo}, o Eloquent ORM implementa o \textit{ActiveRecord}, o que significa que uma única classe (\textit{Model}) é responsável por interagir com a tabela de forma completa, podendo inserir, atualizar e excluir novos registros.

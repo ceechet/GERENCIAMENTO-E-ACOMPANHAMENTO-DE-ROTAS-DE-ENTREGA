@@ -1,0 +1,11 @@
+%http://repositorio.ufu.br/handle/123456789/26374
+%http://www.repository.ufrpe.br/handle/123456789/1427
+%https://www.lume.ufrgs.br/bitstream/handle/10183/175013/001065064.pdf?sequence=1
+Artisan é o nome da interface de linha de comando incluída no Laravel, um conjunto de ações internas com a oportunidade de inclusão de outras, executadas pela \textit{Command Line Interface} (CLI). Com o Artisan, o desenvolvedor é capaz de acionar ações, como testes de unidade, tarefas agendadas e execução de migrações do banco de dados \cite{mccool2012laravel}. Com os comandos do Artisan e seus argumentos opcionais, esboços das classes que compõem a aplicação podem ser gerados, acelerando o processo de desenvolvimento e minimizando a quantidade de erros de programação.
+
+\begin{lstlisting}[caption={Comandos Artisan}, style=htmlcssjs, label=alg:artisan]
+php artisan make:model Payment -m
+php artisan make:controller PaymentsController
+\end{lstlisting}
+
+Conforme o \autoref{alg:artisan}, no primeiro comando a ferramenta já cria diversos arquivos e configurações no projeto para implementar a entidade \textit{Payment}, bastando agora somente preencher seus atributos, relacionamentos e regras de negócios. Do mesmo modo, o segundo comando já monta o arquivo padrão de um controlador.

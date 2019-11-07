@@ -1,10 +1,7 @@
 \chapter{DESENVOLVIMENTO DA APLICAÇÃO}
 %https://rafaell-lycan.com/2015/construindo-restful-api-laravel-parte-1/
 
-%%% Rev-Madalozzo: "pedidos gerados nos estabelicmentos"- Q estabelecimentos? Em algum lugar no texto, antes deste ponto, você comenta sobre os estabelecimentos? Quem são eles? Como eles vão se comunicar contigo? Etc.
-%%% Rev-Madalozzo: "entregas" - Que tipo de entregas? Entregas de comida? Entregas de frete? Falou sobre isso antes em algum lugar e que eu tenha perdido a leitura?
-
-O presente trabalho apresenta uma API REST, a qual possibilita a coleta das coordenadas geográficas dos pedidos gerados nos estabelecimentos. Além disso, apresenta o desenvolvimento de uma aplicação para gerenciar, por meio de um painel de controle, a logística das entregas. Tal aplicação tem por objetivo fornecer ao motoboy um módulo de entregas, possibilitando a ele observar no mapa a rota e os pontos de parada que devem ser percorridos. Todo o processo de comunicação da aplicação ocorre totalmente em tempo real, o que possibilita agilidade e segurança quanto ao destino final.
+O presente trabalho apresenta uma API REST, a qual possibilita a coleta das coordenadas geográficas dos pedidos gerados nos estabelecimentos. Além disso, apresenta o desenvolvimento de uma aplicação para gerenciar, por meio de um painel de controle, a logística das entregas de comida, próteses, entre outras mercadorias. Tal aplicação tem por objetivo fornecer ao motoboy um módulo de entregas, possibilitando a ele observar no mapa a rota e os pontos de parada que devem ser percorridos. Todo o processo de comunicação da aplicação ocorre totalmente em tempo real, o que possibilita agilidade e segurança quanto ao destino final.
 
 \section{Softwares utilizados}
 
@@ -33,12 +30,11 @@ A execução do comando \textit{composer create-project --prefer-dist laravel/la
 \begin{figure}[H]
     \centering
     \caption{Estrutura Laravel}
-    \includegraphics[width=0.7\textwidth]{./dados/figuras/fig6}
+    \includegraphics[width=0.48\textwidth]{./dados/figuras/fig6}
     \fonte{Autor}
     \label{fig:base-projeto}
 \end{figure}
 
-\newpage
 A montagem do ambiente de desenvolvimento para deixa-lo funcional no \textit{framework} Laravel necessitou de algumas configurações, tais como: primeiramente foi preciso instalar e configurar todas as dependências do PHP para que se pudesse ter acesso a linguagem de programação através do gerenciados de dependências Composer.
 
 Foi optado, por questões de controle de versionamento do projeto, hospedar o código-fonte do projeto em nuvem, através da plataforma GitHub. A sincronia entre os arquivos locais e o GitHub foi possível com o auxílio do sistema de controle de versões chamado Git, representado visualmente pelo Sourcetree, que deixa o trabalho braçal por linha de comando (\textit{gitbash}) de lado, sendo também necessário sua instalação e configuração na máquina de desenvolvimento. 
@@ -56,11 +52,22 @@ FOR EACH ROW BEGIN
 END
 \end{lstlisting}
 
-%%% Rev-Madalozzo: Migration: De um exemplo de criação de uma tabela simples e um com FK que você tenha criado. Explica como se cria (linha de comando artisan) uma migration e como se executa ela. E a importância principal de trabalhar com migrations, versionamento da base de dados. 
+O recurso do Laravel chamado Migration, tem por objetivo gerenciar as mudanças estruturais do banco de dados da aplicação. Para cada tabela, coluna ou índice criados no banco de dados, é possível usar a \textit{migration} para fazer essa operação automática, visando organizar e definir uma sequência de criação das tabelas. Para aplicações com poucas tabelas a utilização de \textit{migrations} para gerenciar a estrutura das tabelas é extremamente útil e válida.
+
+O \autoref{alg:migration} demonstra a criação de uma \textit{migration}, por meio do comando \textit{php artisan make:model Delivery -m}. O parâmetro “-m” indica que além do \textit{model}, uma \textit{migration} deve ser criada.
+Para atualizar o banco de dados executando todas as \textit{migrations}, é necessário executar o comando \textit{php artisan migrate}. 
+
+\begin{lstlisting}[caption={Delivery Routes - Exemplo de migration}, style=htmlcssjs, label=alg:migration]
+ Schema::create('deliveries', function (Blueprint $table) {
+    $table->increments('id');
+    $table->integer('motoboy_id')->unsigned();
+    $table->foreign('motoboy_id')->references('id')->on('motoboys');
+    $table->string('status',30);
+    $table->timestamps();
+});
+\end{lstlisting}
 
 %%%Aproveita e comenta sobre seeds, para poder popular tabelas em um ambiente de teste. Cria um seed para uma tabela de tua base e mostra a importancia desta possibilidade para efetuar o desenvolvimento.
-
-O recurso do Laravel chamado \textit{Migration}, tem por objetivo gerenciar as mudanças estruturais do banco de dados da aplicação. Para cada tabela, coluna ou índice criados no banco de dados, é possível usar a \textit{migration} para fazer essa operação automática, visando organizar e definir uma sequência de criação das tabelas. Para aplicações com poucas tabelas a utilização de \textit{migrations} para gerenciar a estrutura das tabelas é extremamente útil e válida.
 
 \newpage
 \section{Módulo de gerenciamento}

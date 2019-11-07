@@ -40,8 +40,6 @@ CONCLUDED & Indica um pedido que foi concluído pelo administrador. \\ \hline
 
 %%%Se o valor da coluna token_access é diferente ao hash da sessão siginfica que o usuário fez um novo login e gerou um novo hash. Neste caso podemos deslogar o usuário, caso os valores não se coinsidam.
 
-%%% Rev-Madalozzo: Pergunta: Tela em inglês, daqui em diante eu espero que TODO o sistema seja em inglês :-)
-
 Na \autoref{fig:drLogin} é possível visualizar o acesso ao módulo de gerenciamento, com autenticação apenas para administradores, realizada via e-mail e senha, cujo cadastro é efetuado por meio do link \textit{Register a new membership}. Habilitando a opção \textit{Remember Me}, o controle de única sessão por usuário é ativado, por intermédio de um \textit{hash} gerado no momento do login. É disponibilizado também o link \textit{I forgot my password} para realizar a recuperação da senha, mediante a confirmação de um e-mail existente na base de dados.
 
 \begin{figure}[H]
