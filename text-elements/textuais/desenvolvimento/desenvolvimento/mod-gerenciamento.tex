@@ -16,16 +16,18 @@ Primeiramente, é preciso entender os possíveis status e o fluxo de um pedido i
     \centering
     \caption{Delivery Routes - Status do pedido
     \label{tab:drStatusPedido}}
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Status} & \textbf{Descrição} \\ \hline
-PLACED & Indica que um pedido pode ser integrado no sistema. \\ \hline
-CONFIRMED & Indica um pedido disponível para entrega. \\ \hline
-INTEGRATED & Indica um pedido vinculado à uma entrega. \\ \hline
-CANCELLED & Indica um pedido que foi cancelado. \\ \hline
-DISPATCHED & Indica um pedido que foi despachado ao cliente. \\ \hline
-DELIVERED & Indica um pedido que foi entregue pelo motoboy. \\ \hline
-CONCLUDED & Indica um pedido que foi concluído pelo administrador. \\ \hline
+\begin{tabular}{ll}
+\toprule
+\textbf{Status} & \textbf{Descrição} \\
+\midrule
+PLACED & Indica um pedido disponível para integração no sistema \\
+CONFIRMED & Indica um pedido disponível para entrega \\
+INTEGRATED & Indica um pedido vinculado à uma entrega \\
+CANCELLED & Indica um pedido cancelado \\
+DISPATCHED & Indica um pedido despachado ao cliente \\
+DELIVERED & Indica um pedido entregue pelo motoboy \\
+CONCLUDED & Indica um pedido concluído pelo administrador \\
+\bottomrule
 \end{tabular}
     \fonte{Adaptada de \citeonline{iFood}}
 \end{table}
@@ -74,7 +76,7 @@ Este projeto foi desenvolvido em duas frentes: um desenvolvimento \textit{front-
 
 O Bootstrap, é a biblioteca de componentes \textit{front-end} mais popular do mundo \cite{bootstrap}, e é voltado principalmente para o desenvolvimento de projetos mobile. Todos os componentes oferecidos, como alertas, cartões e formulários, são responsivos, ou seja, eles se redimensionam, se escondem, diminuem ou ficam maiores dependendo do tamanho do dispositivo em que a página é renderizada. Atualmente a biblioteca está na versão 4, o que trouxe muitas melhorias em relação a versão 3, como a simplificação dos componentes de navegação. No entanto, a versão usada pelo AdminLTE ainda é a 3.0 e por isso esta é a versão utilizada neste projeto.
 
-O AdminLTE é um \textit{template} para desenvolvimento de \textit{dashboards} ou painéis de controle. Possui código-aberto, construído usando Bootstrap 3 e design responsivo. Por ser de código-aberto, dúvidas ou problemas encontrados podem ser postados no repositório do projeto no GitHub
+O AdminLTE é um \textit{template} para desenvolvimento de \textit{dashboards} ou painéis de controle. Possui código-aberto, construído usando Bootstrap 3 e design responsivo. Por ser de código aberto, dúvidas ou problemas encontrados podem ser postados no repositório do projeto no GitHub
 \footnote{https://github.com/acacha/adminlte-laravel}, onde qualquer membro da comunidade pode prestar ajuda e propor soluções.
 
 O Pratt é uma implementação baseada no \textit{template} responsivo AdminLTE, que por sua vez utiliza o \textit{framework} Bootstrap. Utilizar projetos como o Pratt como base para desenvolver outras aplicações reduz o tempo necessário para iniciar o desenvolvimento e ajuda a evitar possíveis problemas de configurações que um programador pode encontrar. 
@@ -130,7 +132,7 @@ A edição do registro é apresentada na \autoref{fig:drEdicaoPagamento}.
 \end{figure}
 
 \newpage
-Ao selecionar a opção de menu “Entregas” (\autoref{fig:drListaEntregas}) é possível visualizar todo o histórico de entregas já realizadas na aplicação. Nela estão presentes informações como o identificador, motoboy, status e os pedidos que compõem cada entrega. Botões para visualização, impressão da comanda, finalização (altera o \textit{status} da entrega para \textit{CONCLUDED}) e cancelamento (altera o status da entrega para \textit{CANCELLED}) acompanham cada registro.
+Ao selecionar a opção de menu “Entregas” (\autoref{fig:drListaEntregas}) é possível visualizar todo o histórico de entregas já realizadas na aplicação. Nela estão presentes informações como o identificador, motoboy, status e os pedidos que compõem cada entrega. Botões para visualização, impressão da comanda, finalização (altera o status da entrega para \textit{CONCLUDED}) e cancelamento (altera o status da entrega para \textit{CANCELLED}) acompanham cada registro.
 
  \begin{figure}[H]
     \centering
@@ -149,7 +151,7 @@ Ao selecionar a opção de menu “Entregas” (\autoref{fig:drListaEntregas}) �
 \end{figure}
 
 \newpage
-Na \autoref{fig:drListaPedidos} é apresentada a tela de “Pedidos Em Aberto”, onde os dados são apresentados quando, via requisição \textit{GET} na rota \textit{“/orders/opened”} na API do software principal do estabelecimento, executada pela rota: \textit{/orders/index}. Como resposta o servidor informa um objeto JSON com a lista dos pedidos com status \textit{PLACED}. No \autoref{alg:orderIndex} é apresentada a função que integra os pedidos no Delivery Routes.
+Na \autoref{fig:drListaPedidos} é apresentada a tela de “Pedidos Em Aberto”, onde os dados são apresentados quando, via requisição \textit{GET} na rota \textit{“/orders/opened”} na API do software principal do estabelecimento, executada pela rota: \textit{/orders}. Como resposta o servidor informa um objeto JSON com a lista dos pedidos com status \textit{PLACED}. No \autoref{alg:orderIndex} é apresentada a função que integra os pedidos no Delivery Routes.
 
 \begin{lstlisting}[caption={Delivery Routes - Função integradora de pedidos}, style=htmlcssjs, label=alg:orderIndex]
 public function index() {
@@ -174,7 +176,7 @@ public function index() {
 
 Essa função executa, também, um método denominado \textit{changePriority()}, que por meio das APIs Distance Matrix e Geocoder do Google Maps, preenchem os campos \textit{distance} e \textit{formatted\_address} dos pedidos (\autoref{alg:changePriority}). Além disso, é feita a alteração do status dos pedidos integrados para \textit{CONFIRMED}.
 
-A partir do campo \textit{distance}, preenchido anteriormente, é agregada a prioridade sugerida pela aplicação. A regra aplicada nessa etapa consiste em analisar qual o pedido se encontra mais próximo à posição do usuário no momento da requisição à Distance Matrix API.
+A partir do campo \textit{distance}, preenchido anteriormente, é agregada à prioridade sugerida pela aplicação. A regra aplicada nessa etapa consiste em analisar qual o pedido se encontra mais próximo à posição do usuário no momento da requisição à Distance Matrix API.
 
 Com todos os dados preenchidos (endereço, distância e prioridade), é possível analisar e gerenciar as informações sugeridas para cada pedido.
 

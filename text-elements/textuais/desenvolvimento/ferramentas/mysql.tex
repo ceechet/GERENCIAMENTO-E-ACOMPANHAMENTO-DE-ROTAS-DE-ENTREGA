@@ -5,14 +5,14 @@ Desenvolvido pela empresa sueca MySQL AB e publicado, originalmente, em maio de 
 
 \citeonline{bentodesenvolvimento} explica que PHP e MySQL já são velhos amigos. É bem comum encontrar aplicações que fazem uso destas tecnologias em conjunto. Desde pequenos sites pessoais, até grandes sistemas de gestão e lojas virtuais. O que torna esta parceria tão forte e estável é uma combinação de fatores, como o fato de o MySQL ser um banco fácil de aprender, leve e rápido, o PHP ser fácil e flexível e ambos possuírem licenças permissivas para uso pessoal, comercial e em projetos de software livre, através de funções que conectam, executam código SQL e trazem os resultados para a aplicação.
 
-\citeonline{mysql:ufpe} comparam em seu artigo três módulos: carga e estrutura, mono-usuário e multi-usuário nos bancos de dados: MySQL e PostgreSQL, seguindo as métricas do \textit{Open Source Database Benchmark} (OSDB), em plataforma GNU/Linux. Para os testes, foram criadas duas bases de dados com tamanhos distintos: 512MB e 1GB. Para esses tamanhos de base a quantidade de linhas por tabela é de 1.280.000 (512MB) e 2.500.000 (1GB), respectivamente.
+\citeonline{mysql:ufpe} comparam em seu artigo três módulos: carga e estrutura, mono-usuário e multi-usuário nos bancos de dados: MySQL e PostgreSQL, seguindo as métricas do \textit{Open Source Database Benchmark} (OSDB), em plataforma Linux. Para os testes, foram criadas duas bases de dados com tamanhos distintos: 512MB e 1GB. Para esses tamanhos de base a quantidade de linhas por tabela é de 1.280.000 (512MB) e 2.500.000 (1GB), respectivamente.
 
-De acordo com a \autoref{tab:comparisonMySql}, o desempenho do PostgreSQL foi superior ao MySQL apenas no módulo de carga e estrutura, especialmente na criação de índices. Nos demais módulos, o MySQL mostrou-se superior, apresentando melhores resultados na maioria dos testes. Diferentemente do PostgreSQL, o otimizador de consulta do MySQL optou por utilizar índice. Em alguns SGBD, a escolha de índices é influenciada pela existência de estatísticas sobre as estruturas de armazenamento. No PostgreSQL, as estatísticas são geradas apenas sob demanda. Como o kit do \textit{benchmark} não contempla a geração de estatísticas em seu código, isso ajuda a explicar o resultado \cite{mysql:ufpe}.
+De acordo com o \autoref{quadro:comparisonMySql}, o desempenho do PostgreSQL foi superior ao MySQL apenas no módulo de carga e estrutura, especialmente na criação de índices. Nos demais módulos, o MySQL mostrou-se superior, apresentando melhores resultados na maioria dos testes. Diferentemente do PostgreSQL, o otimizador de consulta do MySQL optou por utilizar índice. Em alguns SGBD, a escolha de índices é influenciada pela existência de estatísticas sobre as estruturas de armazenamento. No PostgreSQL, as estatísticas são geradas apenas sob demanda. Como o kit do \textit{benchmark} não contempla a geração de estatísticas em seu código, isso ajuda a explicar o resultado \cite{mysql:ufpe}.
 
-\begin{table}[H]
+\begin{quadro}[H]
     \centering
     \caption{Resultados do Sumário Executivo
-    \label{tab:comparisonMySql}}
+    \label{quadro:comparisonMySql}}
 \begin{tabular}{l|c|c|c|c|}
 \cline{2-5}
  & \multicolumn{2}{c|}{\textbf{512MB}} & \multicolumn{2}{c|}{\textbf{1GB}} \\ \hline
@@ -22,7 +22,7 @@ De acordo com a \autoref{tab:comparisonMySql}, o desempenho do PostgreSQL foi su
 \multicolumn{1}{|l|}{Multi-Usuário} & 1h06min & 50min & 3h43min & 1h34min \\ \hline
 \end{tabular}
     \fonte{\citeonline{mysql:ufpe}}
-\end{table}
+\end{quadro}
 
 %https://www.hostinger.com.br/tutoriais/o-que-e-mysql/
 %https://www.techtudo.com.br/artigos/noticia/2012/04/o-que-e-e-como-usar-o-mysql.html

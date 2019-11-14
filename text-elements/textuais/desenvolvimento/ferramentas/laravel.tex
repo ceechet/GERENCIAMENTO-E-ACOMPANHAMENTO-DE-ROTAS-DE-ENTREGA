@@ -14,12 +14,14 @@ Segundo \citeonline{comparisonLaravel}, afirmaram que ao comparar PHP procedural
     \centering
     \caption{Resultado do experimento no tempo de execução
     \label{tab:comparisonLaravel}}
-    \begin{tabular}{|r|r|r|r|r|}
-            \hline
-            & CREATE    & READ      & UPDATE    & DELETE \\ \hline
-            PLAIN PHP   & 0.066     & 0.063    & 0.0925   & 0.065 \\ \hline
-            CODEIGNITER & 0.0634    & 0.0747   & 0.0825   & 0.616 \\ \hline
-            LARAVEL     & 0.201     & 0.222    & 0.312    & 0.301 \\ \hline
+    \begin{tabular}{rrrrr}
+            \toprule
+            & CREATE    & READ      & UPDATE    & DELETE \\
+            \midrule
+            PLAIN PHP   & 0.066     & 0.063    & 0.0925   & 0.065 \\
+            CODEIGNITER & 0.0634    & 0.0747   & 0.0825   & 0.616 \\
+            LARAVEL     & 0.201     & 0.222    & 0.312    & 0.301 \\
+            \bottomrule
     \end{tabular}
     \fonte{\citeonline{comparisonLaravel}}
 \end{table}
@@ -29,7 +31,7 @@ Segundo \citeonline{comparisonLaravel}, afirmaram que ao comparar PHP procedural
 \begin{figure}[H]
     \centering
     \caption{Tendências de eficiência de desenvolvimento - Laravel e CodeIgniter}
-    \includegraphics[width=0.7\textwidth]{./dados/figuras/fig9}
+    \includegraphics[width=0.6\textwidth]{./dados/figuras/fig9}
     \fonte{\citeonline{He2015/01}}
     \label{fig:He2015/01}
 \end{figure}

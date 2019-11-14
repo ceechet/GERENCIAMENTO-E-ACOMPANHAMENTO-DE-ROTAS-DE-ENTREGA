@@ -1,6 +1,6 @@
 Esse domínio do MVC é responsável por direcionar os \textit{requests} conforme a regra de negócio, também de acordo com a arquitetura do projeto, ele é responsável por autenticar o usuário e garantir que as rotas do sistema estão sendo acessadas por alguém autenticado. 
 
-No caso dos controladores, também foi criado um específico para cada classe, onde ele será responsável por direcionar os pedidos conforme a especificidade. Dessa forma, podemos utilizar como exemplo o caso da classe Motoboy, com o controlador representado no \autoref{alg:controllerMotoboy}.
+No caso dos controladores, também foi criado um específico para cada classe, onde ele será responsável por direcionar os pedidos conforme a especificidade. Dessa forma, podemos utilizar como exemplo o caso da classe \textit{Motoboy}, com o controlador representado no \autoref{alg:controllerMotoboy}.
 
 \begin{lstlisting}[caption={Delivery Routes - Exemplo de um Controller: Motoboy}, style=htmlcssjs, label=alg:controllerMotoboy]
 <?php
@@ -40,7 +40,9 @@ class MotoboysController extends Controller {
     \caption{Delivery Routes - Exemplo de router do back-end
     \label{tab:drRoutes}}
 \begin{tabular}{llp{9.2cm}l}
+\toprule
 \textbf{Método} & \textbf{URI} & \textbf{Ação} \\
+\midrule
 GET & / & Exibe a dashboard do aplicativo. \\
 GET & register & Exibe o formulário de inscrição do aplicativo. \\
 POST & register & Manipula uma solicitação de registro para o aplicativo. \\
@@ -72,10 +74,11 @@ GET & delivering/\{id\} & Retorna os atributos dos pedidos da entrega desejada e
 GET & deliveries/\{id\}/view & Manipula uma solicitação de início de um entrega. \\
 GET & deliveries/\{id\}/dispatched & Manipula uma solicitação de despacho de uma entrega. \\
 GET & deliveries/\{id\}/concluded & Manipula uma solicitação de conclusão de uma entrega. \\
-GET & deliveries/\{id\}/cancelled & Manipula uma solicitação de cancelamento de uma entrega.
+GET & deliveries/\{id\}/cancelled & Manipula uma solicitação de cancelamento de uma entrega. \\
+\bottomrule
 \end{tabular}
     \fonte{Autor}
 \end{table}
 
 \newpage
-Além de implementar os controladores de todas as classes, foi necessário estabelecer quais seriam as rotas e quais controles serão chamados de acordo com a rota. Para isso o \textit{framework} Laravel disponibiliza um \textit{router}, responsável por organizar as rotas e direciona-las de acordo com o controlador (\autoref{tab:drRoutes}). Nesse mesmo \textit{router} também direciona as rotas de autenticação caso o usuário não esteja logado.
+Além de implementar os controladores de todas as classes, foi necessário estabelecer quais seriam as rotas e quais controles serão chamados de acordo com a rota. Para isso o \textit{framework} Laravel disponibiliza um \textit{router}, responsável por organizar as rotas e direcioná-las de acordo com o controlador (\autoref{tab:drRoutes}). Nesse mesmo \textit{router}, também direciona as rotas de autenticação caso o usuário não esteja logado.

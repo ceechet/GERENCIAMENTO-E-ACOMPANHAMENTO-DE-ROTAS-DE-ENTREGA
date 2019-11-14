@@ -15,7 +15,7 @@ Uma boa API é o conjunto de arquivos que o aplicativo lê ou escreve, bem como 
 \begin{figure}[H]
     \centering
     \caption{API - Estrutura}
-    \includegraphics[width=0.8\textwidth]{./dados/figuras/fig10}
+    \includegraphics[width=0.9\textwidth]{./dados/figuras/fig10}
     \fonte{\citeonline{redhat}}
     \label{fig:api}
 \end{figure}
@@ -62,7 +62,7 @@ Compatibilidade com navegadores em dispositivos móveis:
     \item Maemo.
 \end{itemize}
 
-\subsection{Fontes de Geolocalização}
+\subsection{Fontes de geolocalização}
 
 Para obter a localização do usuário podem-se utilizar diferentes fontes, as quais têm seu próprio grau de precisão, variação e precisão. Por intermédio do navegador instalado em um \textit{desktop}, o sistema de geolocalização utiliza \textit{Wi-Fi} (com precisão de 20 metros) ou o IP de conexão, que só se faz necessário ao nível de cidade,  uma vez que pode fornecer, algumas vezes, falsas informações. Por sua vez, os dispositivos móveis utilizam a técnica de triangulação do GPS (com precisão de 10m), \textit{Wi-Fi} e GSM/CDMA (com precisão de 1000 metros) \cite{geolocalizacao:2011}.
 
@@ -78,12 +78,12 @@ Segundo \citeonline{geolocalizacao:2011}, \textit{getCurrentPosition} e \textit{
     \item \textit{maximumAge}: denota o tempo máximo de uma posição em cache que o aplicativo estará disposto a aceitar. Tudo isso sendo realizado em milissegundos com o valor padrão 0, significando que uma tentativa deve ser realizada para obter um novo objeto imediatamente.
 \end{itemize}
 
-Para que seja possível capturar a posição do objeto enquanto ele ou o usuário estiver se movimentando, é necessário utilizar o método \textit{watchPosition}. A \autoref{tab:propertycoords} apresenta as propriedades presentes no objeto de retorno da função. Entre esses, apenas \textit{coords.latitude} e \textit{coords.longitude} são garantidos para serem devolvidos (todos os outros podem ser nulos) \cite{geolocalizacao:2011}.
+Para que seja possível capturar a posição do objeto enquanto ele ou o usuário estiver se movimentando, é necessário utilizar o método \textit{watchPosition}. O \autoref{quadro:propertycoords} apresenta as propriedades presentes no objeto de retorno da função. Entre esses, apenas \textit{coords.latitude} e \textit{coords.longitude} são garantidos para serem devolvidos (todos os outros podem ser nulos) \cite{geolocalizacao:2011}.
 
-\begin{table}[H]
+\begin{quadro}[H]
     \centering
     \caption{Propriedades dos métodos de geolocalização
-    \label{tab:propertycoords}}
+    \label{quadro:propertycoords}}
 \begin{tabular}{|l|l|}
 \hline
 \textbf{Propriedade} & \textbf{Detalhes} \\ \hline
@@ -97,7 +97,7 @@ coords.speed & A velocidade desolo atual do dispositivo em metros por segundo \\
 timestamp & \textit{Timestamp} de quando a posição foi adquirida \\ \hline
 \end{tabular}
     \fonte{\citeonline{oficinanetagps:2018}}
-\end{table}
+\end{quadro}
 
 \section{A-GPS}
 O Sistema de Posicionamento Global Assistido, desenvolvido para localizar satélites com mais rapidez e confiabilidade, dispõe de recursos de rede para localizar e utilizar os satélites em condições de sinal fraco. Logo, é uma versão otimizada do  GPS, que recebe informações por meio de uma conexão de dados (GPRS ou 3G), permitindo que o aparelho calcule as coordenadas da sua posição atual ao receber informações satelitais, sob certas condições. Tal aspecto pode ser visto na \autoref{fig:figura-funcagps} \cite{oficinanetagps:2018}. 
@@ -147,13 +147,14 @@ O Google Maps é uma aplicação fornecida pela Google amplamente utilizada por 
 \begin{figure}[H]
     \centering
     \caption{Exemplo de visualização do Google Maps}
-    \includegraphics[width=0.9\textwidth]{./dados/figuras/fig4}
+    \includegraphics[width=0.95\textwidth]{./dados/figuras/fig4}
     \fonte{\citeonline{googleMaps:2019}}
     \label{fig:figura-googlemaps}
 \end{figure}
 
 A principal ferramenta utilizada no Google Maps é a busca por endereços. A partir de um computador, independentemente do navegador e do sistema operacional, basta digitar o endereço que deseja encontrar. Além de digitar o local manualmente, é possível indicá-lo diretamente no mapa. Também, é possível descobrir novos locais, como lojas, restaurantes, entre outros pontos de interesse facilmente, através de categorias e subcategorias, como “para ir com crianças” ou “para gastar pouco”. Os locais são escolhidos com base na localização atual e que se adaptam ao gosto de cada usuário. É comum ser disponibilizado mais de um caminho para o destino final, exibindo, por padrão, a mais rápido, levando em consideração a variação de trânsito para o horário do momento. Isso é possível porque o Google Maps acumula informações sobre o tráfego da região. Ou seja, ele sabe qual é o fluxo de veículos para um determinado local em um determinado horário. Além de encontrar qualquer localidade, demonstrar informações meteorológicas ou indicações e caminhar ao redor das cidades mais importantes do globo, são seus diferenciais \cite{google:2019}.
 
+\newpage
 Para ajudar quem anda de ônibus, metrô ou trem, pelas cidades do mundo, é possível saber a melhor rota de transporte público, qual o ponto de ônibus mais perto e os locais de parada do coletivo. Dispondo de serviços de altitude para ciclistas, é possível identificar as variações do terreno em metros durante o trajeto, além de levar em conta a estrutura cicloviária da cidade. Às vezes, esse caminho pode não ser o mais direto entre os dois pontos, mas ele pretende ser o mais seguro e agradável para quem está pedalando \cite{google:2019}.
 
 Com uma enorme base de dados, serviços como Booking, Decolar ou Kayak, podem ser encontrados ao pesquisar por um hotel na plataforma da Google, contando com uma ferramenta interna para ajudar seus usuários, que apresenta diversas opções de quartos vagos na região, e seus preços médios. Caso o local de visita escolhido durante uma viagem seja bem conhecido, é possível fazer um \textit{tour} pelo espaço interno mapeado. No Maracanâ, por exemplo, é possível visualizar a divisão das arquibancadas. Muitas das opções de uso citadas fazem parte da Google Street View, que mapeia locais possíveis de caminhar virtualmente por várias cidades ao redor do mundo, o que permite encontrar exatamente a fachada do local desejado. Além do Google Earth e dos Indoor Maps, o Google Maps traz também outra função capaz explorar o mundo a partir da tela do computador chamada Google Treks, desenvolvido para visitar virtualmente alguns lugares da Terra \cite{google:2019}.
