@@ -23,7 +23,7 @@ Primeiramente, é preciso entender os possíveis status e o fluxo de um pedido i
 PLACED & Indica um pedido disponível para integração no sistema \\
 CONFIRMED & Indica um pedido disponível para entrega \\
 INTEGRATED & Indica um pedido vinculado à uma entrega \\
-CANCELLED & Indica um pedido cancelado \\
+CANCELLED\textit{} & Indica um pedido cancelado \\
 DISPATCHED & Indica um pedido despachado ao cliente \\
 DELIVERED & Indica um pedido entregue pelo motoboy \\
 CONCLUDED & Indica um pedido concluído pelo administrador \\
@@ -72,16 +72,16 @@ Destaca-se na \autoref{fig:drDashboard}, além de indicadores de: Pedidos em abe
 
 \newpage
 %http://repositorio.ufu.br/handle/123456789/22185
-Este projeto foi desenvolvido em duas frentes: um desenvolvimento \textit{front-end} e outro \textit{back-end}. O \textit{front-end} foi baseado em um modelo, ou \textit{template}, chamado Pratt, uma implementação em Blade do tema AdminLTE 5.4 (desenvolvido com Bootstrap). Já o \textit{back-end} foi feito utilizando o \textit{framework} Laravel, na linguagem PHP, como comentado anteriormente.
+Este projeto foi desenvolvido em duas frentes: um desenvolvimento \textit{front-end} e outro \textit{back-end}. O \textit{front-end} foi baseado em um modelo, ou \textit{template}, chamado \textit{Pratt}, uma implementação em Blade do tema AdminLTE 5.4 (desenvolvido com Bootstrap). Já o \textit{back-end} foi feito utilizando o \textit{framework} Laravel, na linguagem PHP, como comentado anteriormente.
 
 O Bootstrap, é a biblioteca de componentes \textit{front-end} mais popular do mundo \cite{bootstrap}, e é voltado principalmente para o desenvolvimento de projetos mobile. Todos os componentes oferecidos, como alertas, cartões e formulários, são responsivos, ou seja, eles se redimensionam, se escondem, diminuem ou ficam maiores dependendo do tamanho do dispositivo em que a página é renderizada. Atualmente a biblioteca está na versão 4, o que trouxe muitas melhorias em relação a versão 3, como a simplificação dos componentes de navegação. No entanto, a versão usada pelo AdminLTE ainda é a 3.0 e por isso esta é a versão utilizada neste projeto.
 
 O AdminLTE é um \textit{template} para desenvolvimento de \textit{dashboards} ou painéis de controle. Possui código-aberto, construído usando Bootstrap 3 e design responsivo. Por ser de código aberto, dúvidas ou problemas encontrados podem ser postados no repositório do projeto no GitHub
 \footnote{https://github.com/acacha/adminlte-laravel}, onde qualquer membro da comunidade pode prestar ajuda e propor soluções.
 
-O Pratt é uma implementação baseada no \textit{template} responsivo AdminLTE, que por sua vez utiliza o \textit{framework} Bootstrap. Utilizar projetos como o Pratt como base para desenvolver outras aplicações reduz o tempo necessário para iniciar o desenvolvimento e ajuda a evitar possíveis problemas de configurações que um programador pode encontrar. 
+O \textit{Pratt} é uma implementação baseada no \textit{template} responsivo AdminLTE, que por sua vez utiliza o \textit{framework} Bootstrap. Utilizar projetos como o \textit{Pratt} como base para desenvolver outras aplicações reduz o tempo necessário para iniciar o desenvolvimento e ajuda a evitar possíveis problemas de configurações que um programador pode encontrar. 
 
-Dessa forma, o Pratt vem com uma configuração pronta do Webpack (\autoref{fig:webpack}), um \textit{module blunder}, cujo principal objetivo, além de automatizar processos como a ofuscação, minificação e outras operações de pré-processamento de código, é permitir que o código seja escrito de forma modular, o que faz com que o desenvolvedor possa aproveitar todas as vantagens provindas do uso do \textit{module blunder}, sem ter que se preocupar com sua configuração inicial.
+Dessa forma, o \textit{Pratt} vem com uma configuração pronta do Webpack (\autoref{fig:webpack}), um \textit{module blunder}, cujo principal objetivo, além de automatizar processos como a ofuscação, minificação e outras operações de pré-processamento de código, é permitir que o código seja escrito de forma modular, o que faz com que o desenvolvedor possa aproveitar todas as vantagens provindas do uso do \textit{module blunder}, sem ter que se preocupar com sua configuração inicial.
 
 \begin{figure}[H]
     \centering
@@ -174,9 +174,9 @@ public function index() {
 }
 \end{lstlisting}
 
-Essa função executa, também, um método denominado \textit{changePriority()}, que por meio das APIs Distance Matrix e Geocoder do Google Maps, preenchem os campos \textit{distance} e \textit{formatted\_address} dos pedidos (\autoref{alg:changePriority}). Além disso, é feita a alteração do status dos pedidos integrados para \textit{CONFIRMED}.
+Essa função executa, também, um método denominado \textit{changePriority()}, que por meio das APIs \textit{Distance Matrix} e \textit{Geocoder do Google Maps}, preenchem os campos \textit{distance} e \textit{formatted\_address} dos pedidos (\autoref{alg:changePriority}). Além disso, é feita a alteração do status dos pedidos integrados para \textit{CONFIRMED}.
 
-A partir do campo \textit{distance}, preenchido anteriormente, é agregada à prioridade sugerida pela aplicação. A regra aplicada nessa etapa consiste em analisar qual o pedido se encontra mais próximo à posição do usuário no momento da requisição à Distance Matrix API.
+A partir do campo \textit{distance}, preenchido anteriormente, é agregada à prioridade sugerida pela aplicação. A regra aplicada nessa etapa consiste em analisar qual o pedido se encontra mais próximo à posição do usuário no momento da requisição à \textit{Distance Matrix} API.
 
 Com todos os dados preenchidos (endereço, distância e prioridade), é possível analisar e gerenciar as informações sugeridas para cada pedido.
 

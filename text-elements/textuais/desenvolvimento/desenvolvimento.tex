@@ -17,7 +17,7 @@ Esta Seção apresenta os softwares utilizados na etapa de codificação da apli
     \item Blade: ferramenta para criação de interfaces gráficas, utilizado pelo Laravel como uma ferramenta de \textit{template}, trazendo uma quantidade grande de funcionalidades que ajudam na criação de interfaces interativas;
     \item Eloquent ORM: ferramenta com funcionalidades que facilitam a inserção, atualização, busca e exclusão de registros diretamente no banco de dados;
     \item XAMPP: servidor independente de plataforma, que inclui: Apache, MySQL, phpMyAdmin, FileZilla FTP Server, OpenSSL, PHP e Perl;
-    \item Jaspersoft Studio: ferramenta para projetar e executar modelos de relatório com expressões, gráficos, mapas, tabelas e \textit{QR Codes}, criando documentos de qualquer complexidade a partir de informações presentes no banco de dados;
+    \item Jaspersoft Studio: ferramenta para projetar e executar modelos de relatório com expressões, gráficos, mapas, tabelas e códigos QR, criando documentos de qualquer complexidade a partir de informações presentes no banco de dados;
     \item GitHub: plataforma de hospedagem de código-fonte para controle de versão;
     \item Sourcetree: representação visual de repositórios da nuvem.
 \end{itemize}
@@ -41,7 +41,7 @@ Foi optado, por questões de controle de versionamento do projeto, hospedar o c�
 
 O banco de dados escolhido para armazenar os registros foi o MySQL, cuja instalação e configuração ocorreu automaticamente pelo XAMPP. Por fim, para ter acesso à manipulação do código, um editor de texto é necessário. No caso descrito, optou-se pelo PHPStorm (IDE paga, mas que, por meio do e-mail acadêmico da URI, foi obtida a licença estudantil), terminando assim a fase configuração de ambiente de desenvolvimento e garantindo aptidão para começar os trabalhos.
 
-O próximo passo foi a modelagem dos dados, onde verificou-se que seria necessário a criação das seguintes tabelas com o recurso Migration: \textit{users}, \textit{motoboys}, \textit{deliveries}, \textit{payments} e \textit{orders}. Uma sexta tabela chamada de \textit{deliveries\_orders} precisou ser criada para vincular mais de um pedido à cada entrega, onde uma \textit{trigger}, disparada via \textit{after update}, ficou responsável pela atualização do status de cada pedido vinculado à entrega, esta chamada de \textit{tr\_Status\_Orders}, apresentada no \autoref{alg:trigger}. Na próxima Seção serão abordados os possíveis status de um pedido.
+O próximo passo foi a modelagem dos dados, onde verificou-se que seria necessário a criação das seguintes tabelas com o recurso \textit{Migration}: \textit{users}, \textit{motoboys}, \textit{deliveries}, \textit{payments} e \textit{orders}. Uma sexta tabela chamada de \textit{deliveries\_orders} precisou ser criada para vincular mais de um pedido à cada entrega, onde uma \textit{trigger}, disparada via \textit{after update}, ficou responsável pela atualização do status de cada pedido vinculado à entrega, esta chamada de \textit{tr\_Status\_Orders}, apresentada no \autoref{alg:trigger}. Na próxima Seção serão abordados os possíveis status de um pedido.
 
 \begin{lstlisting}[caption={Delivery Routes - Trigger tr\_Status\_Orders}, label=alg:trigger, style=SQL]
 CREATE TRIGGER tr_Status_Orders AFTER UPDATE ON `deliveries`
@@ -52,7 +52,7 @@ FOR EACH ROW BEGIN
 END
 \end{lstlisting}
 
-O recurso do Laravel chamado Migration, tem por objetivo gerenciar as mudanças estruturais do banco de dados da aplicação. Para cada tabela, coluna ou índice criados no banco de dados, é possível usar a \textit{migration} para fazer essa operação automática, visando organizar e definir uma sequência de criação das tabelas. Para aplicações com poucas tabelas a utilização de \textit{migrations} para gerenciar a estrutura das tabelas é extremamente útil e válida.
+O recurso do Laravel chamado \textit{Migration}, tem por objetivo gerenciar as mudanças estruturais do banco de dados da aplicação. Para cada tabela, coluna ou índice criados no banco de dados, é possível usar a \textit{migration} para fazer essa operação automática, visando organizar e definir uma sequência de criação das tabelas. Para aplicações com poucas tabelas a utilização de \textit{migrations} para gerenciar a estrutura das tabelas é extremamente útil e válida.
 
 O \autoref{alg:migration} demonstra a criação de uma \textit{migration}, por meio do comando \textit{php artisan make:model Delivery -m}. O parâmetro “-m” indica que além do \textit{model}, uma \textit{migration} deve ser criada.
 Para atualizar o banco de dados executando todas as \textit{migrations}, é necessário executar o comando \textit{php artisan migrate}. 

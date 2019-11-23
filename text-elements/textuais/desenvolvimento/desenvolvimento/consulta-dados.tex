@@ -11,7 +11,7 @@ Nesse momento os possíveis status do pedido poderem ser:
     \label{fig:drAPIorder}
 \end{figure}
 
-Como resultado dessa consulta (como demonstra o \autoref{alg:getOrder}), o servidor retorna o objeto requisitado (em formato JSON) com os respectivos dados solicitados pela rota, por meio da ferramenta Resources, exercendo a sua função como um camada de tratamento entre o Eloquent ORM e as respostas JSON que são expostas pela API. Essas classes, criadas ao executar o comando \textit{php artisan make:resource OrdersResource} através do Artisan, permitem transformar facilmente, \textit{models} e \textit{collections} em JSON.
+Como resultado dessa consulta (como demonstra o \autoref{alg:getOrder}), o servidor retorna o objeto requisitado (em formato JSON) com os respectivos dados solicitados pela rota, por meio da ferramenta \textit{Resources}, exercendo a sua função como um camada de tratamento entre o Eloquent ORM e as respostas JSON que são expostas pela API. Essas classes, criadas ao executar o comando \textit{php artisan make:resource OrdersResource} através do Artisan, permitem transformar facilmente, \textit{models} e \textit{collections} em JSON.
 
 \begin{lstlisting}[caption={Delivery Routes - Route order}, style=htmlcssjs, label=alg:getOrder]
 Route::get('/order/{id}', function ($order_id) {

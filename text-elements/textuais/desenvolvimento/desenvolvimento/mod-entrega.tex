@@ -49,7 +49,7 @@ Logo após o despacho da entrega, é apresentada na tela no \textit{smartphone} 
 \end{figure}
 
 \newpage
-Para obter a rota entre dois pontos e exibi-la no mapa, é necessário utilizar o serviço da Google Directions API. Lendo a sua documentação, verificou-se necessário a implementação das classes \textit{google.maps.DirectionsService} e o \textit{google.maps.DirectionsRenderer}.
+Para obter a rota entre dois pontos e exibi-la no mapa, é necessário utilizar o serviço da \textit{Google Directions} API. Lendo a sua documentação, verificou-se necessário a implementação das classes \textit{google.maps.DirectionsService} e o \textit{google.maps.DirectionsRenderer}.
 
 Começando pelo \textit{DirectionsService}, o seu funcionamento é bem simples. Basta informar um objeto \textit{google.maps.DirectionsRequest}, o qual irá conter o ponto de origem e destino (\autoref{alg:currentPosition}), e o meio de transporte (carro, a pé, bicicleta ou transporte público), que ele irá retornar um objeto \textit{google.maps.DirectionsResult}, o qual contém as informações da rota, e o \textit{google.maps.DirectionsStatus}, que por sua vez define o estado final da requisição. Ele pode indicar sucesso (\textit{OK}), sem resultados (\textit{ZERO\_RESULTS}), erro (\textit{INVALID\_REQUEST} ou \textit{REQUEST\_DENIED}), etc.
 
@@ -114,4 +114,4 @@ function computeTotalDistance(result) {
 }
 \end{lstlisting}
 
-A maioria dos produtos da Google são pagos, porém há um crédito (200 dólares para uso mensal gratuito, que condizem com até 28 mil carregamentos no valor de 7 dólares por milhar) disponível no momento da requisição dos serviços, que vai sendo debitado na medida que é requisitado. Não é cobrado valor algum até que esse crédito seja totalmente utilizado. Ele pode ser usado no Maps, no Routes ou no Places. Para fins de uso e cobrança, é necessário uma chave da API JavaScript do Google Maps. A chave da API é um identificador exclusivo usado para autenticar solicitações associadas ao projeto.
+A maioria dos produtos da Google são pagos, porém há um crédito (200 dólares para uso mensal gratuito, que condizem com até 28 mil carregamentos no valor de 7 dólares por milhar) disponível no momento da requisição dos serviços, que vai sendo debitado na medida que é requisitado. Não é cobrado valor algum até que esse crédito seja totalmente utilizado. Ele pode ser usado no \textit{Maps}, no \textit{Routes} ou no \textit{Places}. Para fins de uso e cobrança, é necessário uma chave da API JavaScript do \textit{Google Maps}. A chave da API é um identificador exclusivo usado para autenticar solicitações associadas ao projeto.
