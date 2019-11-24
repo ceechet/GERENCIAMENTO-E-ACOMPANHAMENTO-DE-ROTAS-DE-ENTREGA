@@ -1,4 +1,4 @@
-Neste módulo é apresentada a usabilidade do sistema por parte do motoboy, realizando a visualização da rota de entrega denominada para o momento.
+Neste módulo é apresentada à usabilidade do sistema por parte do motoboy, realizando a visualização da rota de entrega denominada para o momento.
 
 \subsection{Tracking de entregas}
 O primeiro status de uma entrega obrigatoriamente será \textit{CONFIRMED}, isso indica que a mesma foi planejada, visualizada e gerada pelo módulo de gerenciamento. Posteriormente a isso, a comanda (\autoref{fig:drCupom}) é impressa e então o fluxo de \textit{tracking} do pedido é iniciado (\autoref{fig:drFluxoPedido}).
@@ -19,7 +19,7 @@ O primeiro status de uma entrega obrigatoriamente será \textit{CONFIRMED}, isso
     \label{fig:drFluxoPedido}
 \end{figure}
 
-Neste cenário, ao ler o código QR impresso na comanda o motoboy é direcionado para a rota: \textit{/deliveries/{id}/dispatched} (\autoref{alg:funcDispatched}), alterando seu status para \textit{DISPATCHED} e executando uma nova rota: \textit{/deliveries/{id}/view}, onde o parâmetro solicitado para ambas é o código da entrega.
+Neste cenário, ao ler o código QR impresso na comanda o motoboy é direcionado para a rota \textit{/deliveries/{id}/dispatched} (\autoref{alg:funcDispatched}), alterando seu status para \textit{DISPATCHED} e executando uma nova rota \textit{/deliveries/{id}/view}, onde o parâmetro solicitado para ambas é o código da entrega.
 
 \begin{lstlisting}[caption={Delivery Routes - Função de despacho da entrega}, style=htmlcssjs, label=alg:funcDispatched]
 public function dispatched($id) {
@@ -60,7 +60,7 @@ function success(position) {
 };
 \end{lstlisting}
 
-Para adicionar os pontos de parada durante a rota, adquiridos através da rota: \textit{/delivering/{id}} (\autoref{alg:pedidosEntrega}), que retorna todos os pedidos da entrega solicitada, é preciso informar uma lista de objetos \textit{google.maps.DirectionsWaypoint} (\autoref{alg:waypoints}), que são alguns pontos pré-definidos no meio do trajeto no objeto \textit{DirectionsRequest} antes de passá-lo para o \textit{directionsService.route}.
+Para adicionar os pontos de parada durante a rota, adquiridos através da rota \textit{/delivering/{id}} (\autoref{alg:pedidosEntrega}), que retorna todos os pedidos da entrega solicitada, é preciso informar uma lista de objetos \textit{google.maps.DirectionsWaypoint} (\autoref{alg:waypoints}), que são alguns pontos pré-definidos no meio do trajeto no objeto \textit{DirectionsRequest} antes de passá-lo para o \textit{directionsService.route}.
 
 \begin{lstlisting}[caption={Delivery Routes - Route pedidos da entrega}, style=htmlcssjs, label=alg:pedidosEntrega]
 Route::get('/delivering/{id}', function ($delivery_id) {

@@ -10,7 +10,7 @@ A aplicação desenvolvida foca no gerenciamento das rotas de entregas dos pedid
     \label{fig:drHttpAPI}
 \end{figure}
 
-Primeiramente, é preciso entender os possíveis status e o fluxo de um pedido integrado na Delivery Routes, ambos representados na \autoref{tab:drStatusPedido} e na \autoref{fig:drStatusPedido}.
+Primeiramente, é preciso entender os possíveis status e o fluxo de um pedido integrado no Delivery Routes, ambos representados na \autoref{tab:drStatusPedido} e na \autoref{fig:drStatusPedido}.
 
 \begin{table}[H]
     \centering
@@ -23,7 +23,7 @@ Primeiramente, é preciso entender os possíveis status e o fluxo de um pedido i
 PLACED & Indica um pedido disponível para integração no sistema \\
 CONFIRMED & Indica um pedido disponível para entrega \\
 INTEGRATED & Indica um pedido vinculado à uma entrega \\
-CANCELLED\textit{} & Indica um pedido cancelado \\
+CANCELLED & Indica um pedido cancelado \\
 DISPATCHED & Indica um pedido despachado ao cliente \\
 DELIVERED & Indica um pedido entregue pelo motoboy \\
 CONCLUDED & Indica um pedido concluído pelo administrador \\
@@ -76,7 +76,7 @@ Este projeto foi desenvolvido em duas frentes: um desenvolvimento \textit{front-
 
 O Bootstrap, é a biblioteca de componentes \textit{front-end} mais popular do mundo \cite{bootstrap}, e é voltado principalmente para o desenvolvimento de projetos mobile. Todos os componentes oferecidos, como alertas, cartões e formulários, são responsivos, ou seja, eles se redimensionam, se escondem, diminuem ou ficam maiores dependendo do tamanho do dispositivo em que a página é renderizada. Atualmente a biblioteca está na versão 4, o que trouxe muitas melhorias em relação a versão 3, como a simplificação dos componentes de navegação. No entanto, a versão usada pelo AdminLTE ainda é a 3.0 e por isso esta é a versão utilizada neste projeto.
 
-O AdminLTE é um \textit{template} para desenvolvimento de \textit{dashboards} ou painéis de controle. Possui código-aberto, construído usando Bootstrap 3 e design responsivo. Por ser de código aberto, dúvidas ou problemas encontrados podem ser postados no repositório do projeto no GitHub
+O AdminLTE é um \textit{template} para desenvolvimento de \textit{dashboards} ou painéis de controle. Possui código-aberto, construído usando Bootstrap e design responsivo. Por ser de código aberto, dúvidas ou problemas encontrados podem ser postados no repositório do projeto no GitHub
 \footnote{https://github.com/acacha/adminlte-laravel}, onde qualquer membro da comunidade pode prestar ajuda e propor soluções.
 
 O \textit{Pratt} é uma implementação baseada no \textit{template} responsivo AdminLTE, que por sua vez utiliza o \textit{framework} Bootstrap. Utilizar projetos como o \textit{Pratt} como base para desenvolver outras aplicações reduz o tempo necessário para iniciar o desenvolvimento e ajuda a evitar possíveis problemas de configurações que um programador pode encontrar. 
@@ -92,7 +92,7 @@ Dessa forma, o \textit{Pratt} vem com uma configuração pronta do Webpack (\aut
 \end{figure}
 
 \newpage
-Ao selecionar a opção de menu “Motoboys”, o usuário consegue, então, gerenciá-los. Conforme é mostrado na \autoref{fig:drListaMotobys}, há uma listagem com o identificador, nome, CPF, e-mail, telefone e data de criação dos registros cadastrados na base de dados. A listagem também conta com botões para editar, excluir ou criar um registro. A edição do registro é apresentada na \autoref{fig:drEdicaoMotoby}.
+Ao selecionar a opção de menu “Motoboys”, o usuário consegue, então, gerenciá-los. Conforme é mostrado na \autoref{fig:drListaMotobys}, há uma listagem com o identificador, nome, CPF, e-mail, telefone e data de criação dos registros cadastrados na base de dados. A listagem também conta com botões para editar, excluir ou criar cada registro. A edição do registro é apresentada na \autoref{fig:drEdicaoMotoby}.
 
 \begin{figure}[H]
     \centering
@@ -151,7 +151,7 @@ Ao selecionar a opção de menu “Entregas” (\autoref{fig:drListaEntregas}) �
 \end{figure}
 
 \newpage
-Na \autoref{fig:drListaPedidos} é apresentada a tela de “Pedidos Em Aberto”, onde os dados são apresentados quando, via requisição \textit{GET} na rota \textit{“/orders/opened”} na API do software principal do estabelecimento, executada pela rota: \textit{/orders}. Como resposta o servidor informa um objeto JSON com a lista dos pedidos com status \textit{PLACED}. No \autoref{alg:orderIndex} é apresentada a função que integra os pedidos no Delivery Routes.
+Na \autoref{fig:drListaPedidos} é apresentada a tela de “Pedidos Em Aberto”, onde os dados são apresentados quando, via requisição \textit{GET} na rota \textit{“/orders/opened”} na API do software principal do estabelecimento, executada pela rota \textit{/orders}. Como resposta o servidor informa um objeto JSON com a lista dos pedidos com status \textit{PLACED}. No \autoref{alg:orderIndex} é apresentada a função que integra os pedidos no Delivery Routes.
 
 \begin{lstlisting}[caption={Delivery Routes - Função integradora de pedidos}, style=htmlcssjs, label=alg:orderIndex]
 public function index() {
