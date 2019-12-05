@@ -74,7 +74,7 @@ Destaca-se na \autoref{fig:drDashboard}, além de indicadores de: Pedidos em abe
 %http://repositorio.ufu.br/handle/123456789/22185
 Este projeto foi desenvolvido em duas frentes: um desenvolvimento \textit{front-end} e outro \textit{back-end}. O \textit{front-end} foi baseado em um modelo, ou \textit{template}, chamado \textit{Pratt}, uma implementação em Blade do tema AdminLTE 5.4 (desenvolvido com Bootstrap). Já o \textit{back-end} foi feito utilizando o \textit{framework} Laravel, na linguagem PHP, como comentado anteriormente.
 
-O Bootstrap, é a biblioteca de componentes \textit{front-end} mais popular do mundo \cite{bootstrap}, e é voltado principalmente para o desenvolvimento de projetos mobile. Todos os componentes oferecidos, como alertas, cartões e formulários, são responsivos, ou seja, eles se redimensionam, se escondem, diminuem ou ficam maiores dependendo do tamanho do dispositivo em que a página é renderizada. Atualmente a biblioteca está na versão 4, o que trouxe muitas melhorias em relação a versão 3, como a simplificação dos componentes de navegação. No entanto, a versão usada pelo AdminLTE ainda é a 3.0 e por isso esta é a versão utilizada neste projeto.
+O Bootstrap é a biblioteca de componentes \textit{front-end} mais popular do mundo \cite{bootstrap}, e é voltado principalmente para o desenvolvimento de projetos mobile. Todos os componentes oferecidos, como alertas, cartões e formulários, são responsivos, ou seja, eles se redimensionam, se escondem, diminuem ou ficam maiores dependendo do tamanho do dispositivo em que a página é renderizada. Atualmente a biblioteca está na versão 4, o que trouxe muitas melhorias em relação a versão 3, como a simplificação dos componentes de navegação. No entanto, a versão usada pelo AdminLTE ainda é a 3.0 e por isso esta é a versão utilizada neste projeto.
 
 O AdminLTE é um \textit{template} para desenvolvimento de \textit{dashboards} ou painéis de controle. Possui código-aberto, construído usando Bootstrap e design responsivo. Por ser de código aberto, dúvidas ou problemas encontrados podem ser postados no repositório do projeto no GitHub
 \footnote{https://github.com/acacha/adminlte-laravel}, onde qualquer membro da comunidade pode prestar ajuda e propor soluções.
@@ -132,7 +132,7 @@ A edição do registro é apresentada na \autoref{fig:drEdicaoPagamento}.
 \end{figure}
 
 \newpage
-Ao selecionar a opção de menu “Entregas” (\autoref{fig:drListaEntregas}) é possível visualizar todo o histórico de entregas já realizadas na aplicação. Nela estão presentes informações como o identificador, motoboy, status e os pedidos que compõem cada entrega. Botões para visualização, impressão da comanda, finalização (altera o status da entrega para \textit{CONCLUDED}) e cancelamento (altera o status da entrega para \textit{CANCELLED}) acompanham cada registro.
+Ao selecionar a opção de menu “Entregas” (\autoref{fig:drListaEntregas}), é possível visualizar todo o histórico de entregas já realizadas na aplicação. Nela estão presentes informações como o identificador, motoboy, status e os pedidos que compõem cada entrega. Botões para visualização, impressão da comanda, finalização (altera o status da entrega para \textit{CONCLUDED}) e cancelamento (altera o status da entrega para \textit{CANCELLED}) acompanham cada registro.
 
  \begin{figure}[H]
     \centering
@@ -151,7 +151,7 @@ Ao selecionar a opção de menu “Entregas” (\autoref{fig:drListaEntregas}) �
 \end{figure}
 
 \newpage
-Na \autoref{fig:drListaPedidos} é apresentada a tela de “Pedidos Em Aberto”, onde os dados são apresentados quando, via requisição \textit{GET} na rota \textit{“/orders/opened”} na API do software principal do estabelecimento, executada pela rota \textit{/orders}. Como resposta o servidor informa um objeto JSON com a lista dos pedidos com status \textit{PLACED}. No \autoref{alg:orderIndex} é apresentada a função que integra os pedidos no Delivery Routes.
+Na \autoref{fig:drListaPedidos} é apresentada a tela de “Pedidos Em Aberto”, onde os dados são apresentados quando, via requisição \textit{GET} na rota \textit{“/orders/opened”} na API do software principal do estabelecimento, executada pela rota \textit{/orders}. Como resposta, o servidor informa um objeto JSON com a lista dos pedidos com status \textit{PLACED}. No \autoref{alg:orderIndex} é apresentada a função que integra os pedidos no Delivery Routes.
 
 \begin{lstlisting}[caption={Delivery Routes - Função integradora de pedidos}, style=htmlcssjs, label=alg:orderIndex]
 public function index() {
@@ -174,9 +174,9 @@ public function index() {
 }
 \end{lstlisting}
 
-Essa função executa, também, um método denominado \textit{changePriority()}, que por meio das APIs \textit{Distance Matrix} e \textit{Geocoder do Google Maps}, preenchem os campos \textit{distance} e \textit{formatted\_address} dos pedidos (\autoref{alg:changePriority}). Além disso, é feita a alteração do status dos pedidos integrados para \textit{CONFIRMED}.
+Essa função executa, também, um método denominado \textit{changePriority()} que, por meio das APIs \textit{Distance Matrix} e \textit{Geocoder do Google Maps}, preenchem os campos \textit{distance} e \textit{formatted\_address} dos pedidos (\autoref{alg:changePriority}). Além disso, é feita a alteração do status dos pedidos integrados para \textit{CONFIRMED}.
 
-A partir do campo \textit{distance}, preenchido anteriormente, é agregada à prioridade sugerida pela aplicação. A regra aplicada nessa etapa consiste em analisar qual o pedido se encontra mais próximo à posição do usuário no momento da requisição à \textit{Distance Matrix} API.
+A partir do campo \textit{distance}, preenchido anteriormente, é agregada à prioridade sugerida pela aplicação. A regra aplicada nessa etapa consiste em analisar qual pedido se encontra mais próximo à posição do usuário no momento da requisição à \textit{Distance Matrix} API.
 
 Com todos os dados preenchidos (endereço, distância e prioridade), é possível analisar e gerenciar as informações sugeridas para cada pedido.
 

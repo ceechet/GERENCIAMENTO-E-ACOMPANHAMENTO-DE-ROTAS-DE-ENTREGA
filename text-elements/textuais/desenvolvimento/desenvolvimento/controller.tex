@@ -1,6 +1,6 @@
-Esse domínio do MVC é responsável por direcionar os \textit{requests} conforme a regra de negócio, também de acordo com a arquitetura do projeto, ele é responsável por autenticar o usuário e garantir que as rotas do sistema estão sendo acessadas por alguém autenticado. 
+Esse domínio do MVC é responsável por direcionar os \textit{requests} conforme a regra de negócio. De acordo com a arquitetura do projeto, ele também é responsável por autenticar o usuário e garantir que as rotas do sistema estão sendo acessadas por alguém autenticado. 
 
-No caso dos controladores, também foi criado um específico para cada classe, onde ele será responsável por direcionar os pedidos conforme a especificidade. Dessa forma, podemos utilizar como exemplo o caso da classe \textit{Motoboy}, com o controlador representado no \autoref{alg:controllerMotoboy}.
+No caso dos controladores, foi criado um específico para cada classe, onde ele será responsável por direcionar os pedidos conforme a especificidade. Dessa forma, podemos utilizar como exemplo o caso da classe \textit{Motoboy}, com o controlador representado no \autoref{alg:controllerMotoboy}.
 
 \begin{lstlisting}[caption={Delivery Routes - Exemplo de um Controller: Motoboy}, style=htmlcssjs, label=alg:controllerMotoboy]
 <?php
@@ -81,4 +81,4 @@ GET & deliveries/\{id\}/cancelled & Manipula uma solicitação de cancelamento d
 \end{table}
 
 \newpage
-Além de implementar os controladores de todas as classes, foi necessário estabelecer quais seriam as rotas e quais controles serão chamados de acordo com a rota. Para isso o \textit{framework} Laravel disponibiliza um \textit{router}, responsável por organizar as rotas e direcioná-las de acordo com o controlador (\autoref{tab:drRoutes}). Nesse mesmo \textit{router}, também direciona as rotas de autenticação caso o usuário não esteja logado.
+Além de implementar os controladores de todas as classes, foi necessário estabelecer quais seriam as rotas e quais controles serão chamados de acordo com a rota. Para isso, o \textit{framework} Laravel disponibiliza um \textit{router}, responsável por organizar as rotas e direcioná-las de acordo com o controlador (\autoref{tab:drRoutes}). Nesse mesmo \textit{router}, também direciona as rotas de autenticação caso o usuário não esteja logado.
